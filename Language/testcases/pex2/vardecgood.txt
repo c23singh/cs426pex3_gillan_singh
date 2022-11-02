@@ -1,0 +1,8 @@
+main(
+    int x;
+    float y;
+    str z;
+
+    int hello_world;
+    float hi1;
+)

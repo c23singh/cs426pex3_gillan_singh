@@ -1,0 +1,11 @@
+func foo(int x, float y, str z)(
+    int x;
+)
+
+func foo2(int x)(
+    int x;
+)
+
+func foo3(int x, float z)(
+    int x;
+)

@@ -1,0 +1,3 @@
+﻿good_variable
+greatVariable
+good_variable2

@@ -1,0 +1,13 @@
+main(
+    if(x AND y OR j)(
+        int x;
+    )
+
+    if(NOT 0 AND 1)(
+        int x;
+    )
+
+    if(x >= y AND 1 < 2 OR p == q)(
+        int x;
+    )
+)

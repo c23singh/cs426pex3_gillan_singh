@@ -1,0 +1,4 @@
+﻿"Wow this string is so good and amazing!"
+"Alex is so smart he even figured out how to put more \"s inside his strings"
+"And look at all of these symbols the compiler accounts for !@#$%^&*()*_+<>?,./:;{}][|]"
+"What a \"genius\""

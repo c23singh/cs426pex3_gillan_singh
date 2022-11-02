@@ -1,0 +1,112 @@
+// This tells SableCC to put all of the code in a package called CS426
+Package CS426;
+
+// Helpers are sets that let you talk about multiple characters in the same way
+Helpers
+	whitespaces = ' ' | 9 | 10 | 13;
+	natural = ['1'..'9'];
+	whole = ['0' + natural];
+	letter = [['a'..'z'] + ['A'..'Z']];
+	floathelper = (natural whole* | '0') '.' whole*;
+	symbol = '!' | '@' | '#' | '$' | '%' | '^' | '&' | '*' | '(' | ')' | '_' | '-' | '+' | '=' | '`' | '~' | '<' | ',' | '.' | '>' | '?' | '/' | ';' | ':' | '[' | ']' | '{' | '}' | '|' | '\';
+
+// PEX 1 - Lexer Portion
+Tokens
+	// Operatinos and EOL
+	eol = ';';
+	greatereq = '>=';
+	greater = '>';
+	lesseq = '<=';
+	less = '<';
+	equiv = '==';
+	assign = '=';
+	plus = '+';
+	mult = '*';
+	minus = '-';
+	divide = '/';
+	openp = '(';
+	closep = ')';
+	andl = 'AND';
+	orl = 'OR';
+	notl = 'NOT';
+	comma = ',';
+	
+
+	// Key Words
+	keyfloat = 'float';
+	keyint = 'int';
+	keyif = 'if';
+	keyelse = 'else';
+	keyconst = 'const';
+	keystr = 'str';
+	keyfunc = 'func';
+	keywhile = 'while';
+	keymain = 'main';
+
+
+	// Identifiers
+	id = ['a'..'z'] '_'? (letter | (letter | whole) '_' | whole)*;
+
+	
+	// Comments
+	comment = '//' ([[0..0xffff] - [10 + 13]])*;
+
+	// Literals
+	float = ((floathelper | (natural whole*)) 'e' ('-'? | '+'?) (natural whole* | '0')) | floathelper;
+	integer = natural whole* | '0';
+	string = '"' (letter | whole | ' ' | symbol | ('\' '"'))*  '"';
+
+	// Whitespace
+	blank = whitespaces+;
+
+Ignored Tokens
+	blank, comment;
+
+
+// PEX 2 - Parser Portion
+Productions
+	program = constdec funcdec main_block;
+
+	constdec = {multiple} constant_declaration constdec | {single}  ;
+	funcdec = {multiple} define_function funcdec | {single} ;
+
+	statements = {multiple} statement statements | {single} ;
+	statement = {declaration} declare_statement | {assignment} assign_statement | {call} function_statement | {ifblock} if_statement | {whileblock} while_statement;
+
+	// Declarations
+	declare_statement = var id eol;
+	var = {floatvar} keyfloat | {intvar} keyint | {strvar} keystr;
+	constant_declaration = keyconst var assign_statement;
+
+	// Assignment
+	assign_statement = id assign expression eol;
+	expression = {add} expression plus expression2 | {pass} expression2;
+	expression2 = {subtract} expression2 minus expression3 | {pass} expression3;
+	expression3 = {multiply} expression3 mult expression4 | {pass} expression4;
+	expression4 = {divide} expression4 divide expression5 | {pass} expression5;
+	expression5 = {parenthesis} openp expression closep | {pass} expression6;
+	expression6 = {negative} minus operand | {pass} operand;
+	operand = {int} integer | {variable} id | {flt} float | {str} string;
+
+
+	// Function
+	function_statement = id openp parameters closep eol;
+	parameters = {single} expression | {multiple} expression comma parameters;
+	define_function = keyfunc id [paramopen]:openp funcparams [paramclose]:closep [funcopen]:openp statements [funcclose]:closep;
+	funcparams = {singleint} keyint id| {singlefloat} keyfloat id | {singlestr} keystr id | {multint} keyint id comma funcparams | {multifloat} keyfloat id comma funcparams | {multistr} keystr id comma funcparams;
+
+	// If and while
+	if_statement = keyif [headero]:openp conditional [headerc]:closep [bodyo]:openp statements [bodyc]:closep;
+	conditional = {single} negation comparison | {multipleand} negation comparison conjunction conditional;
+	negation = {negate} notl | {dontnegate} ;
+	boolean = {var} id | {int} integer;
+	conjunction = {and} andl | {pass} conjunction2;
+	conjunction2 = orl;
+	comparison = {compare}[leftside]:expression operation [rightside]:expression | {booleanint} integer | {booleanvar} id;
+	operation = {greq} greatereq | {greater} greater | {leq} lesseq | {less} less | {equivalence} equiv;
+	while_statement = keywhile [headero]:openp conditional [headerc]:closep [bodyo]:openp statements [bodyc]:closep;
+
+	// Main and Comments
+	main_block = keymain openp statements closep;
+	
+

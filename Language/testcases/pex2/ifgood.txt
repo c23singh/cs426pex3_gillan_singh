@@ -1,0 +1,15 @@
+main(
+    if(1)(
+        int x;
+    )
+
+    if(1 > 2)(
+        int x;
+    )
+
+    if (1 <= 2)(
+        if(NOT 1)(
+            int x;
+        )
+    )
+)

@@ -1,0 +1,9 @@
+﻿float
+int
+if
+else
+const
+str
+func
+while
+main

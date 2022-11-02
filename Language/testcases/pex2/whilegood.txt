@@ -1,0 +1,15 @@
+main(
+    while(1)(
+        int x;
+    )
+
+    while(1 > 2)(
+        int x;
+    )
+
+    while(1 <= 2)(
+        if(NOT 1)(
+            int x;
+        )
+    )
+)

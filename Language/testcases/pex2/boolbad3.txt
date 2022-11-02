@@ -1,0 +1,5 @@
+main(
+    if(1 AND OR 2)(
+        int x;
+        )
+)

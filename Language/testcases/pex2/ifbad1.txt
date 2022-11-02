@@ -1,0 +1,5 @@
+main(
+    if(12hello23)(
+        int x;
+    )
+)

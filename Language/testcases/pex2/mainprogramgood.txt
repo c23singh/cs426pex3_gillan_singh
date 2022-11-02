@@ -1,0 +1,10 @@
+const float pi = 3.14;
+const int r = 6;
+
+func foo(int x, str y, float z)(
+    int i;
+)
+
+main(
+    int z;
+)

@@ -1,0 +1,8 @@
+C:\Users\alexsingh\Documents\PEX1 Starter Pack\PEX Starter Pack\bin\Debug\ConsoleApplication.exe.config
+C:\Users\alexsingh\Documents\PEX1 Starter Pack\PEX Starter Pack\bin\Debug\ConsoleApplication.exe
+C:\Users\alexsingh\Documents\PEX1 Starter Pack\PEX Starter Pack\bin\Debug\ConsoleApplication.pdb
+C:\Users\alexsingh\Documents\PEX1 Starter Pack\PEX Starter Pack\obj\x86\Debug\pex1start.csproj.AssemblyReference.cache
+C:\Users\alexsingh\Documents\PEX1 Starter Pack\PEX Starter Pack\obj\x86\Debug\pex1start.csproj.SuggestedBindingRedirects.cache
+C:\Users\alexsingh\Documents\PEX1 Starter Pack\PEX Starter Pack\obj\x86\Debug\pex1start.csproj.CoreCompileInputs.cache
+C:\Users\alexsingh\Documents\PEX1 Starter Pack\PEX Starter Pack\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\alexsingh\Documents\PEX1 Starter Pack\PEX Starter Pack\obj\x86\Debug\ConsoleApplication.pdb

@@ -1,0 +1,3 @@
+func FOO(int x, float y, string z)(
+    int x;
+)
