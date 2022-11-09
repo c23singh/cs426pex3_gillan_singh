@@ -1,0 +1,6 @@
+﻿func foo()(
+)
+
+main(
+	x = -"sandwich";
+)

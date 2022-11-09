@@ -59,6 +59,7 @@ public interface Analysis : Switch
     void CaseAMultintFuncparams(AMultintFuncparams node);
     void CaseAMultifloatFuncparams(AMultifloatFuncparams node);
     void CaseAMultistrFuncparams(AMultistrFuncparams node);
+    void CaseAEmptyFuncparams(AEmptyFuncparams node);
     void CaseAIfStatement(AIfStatement node);
     void CaseASingleConditional(ASingleConditional node);
     void CaseAMultipleandConditional(AMultipleandConditional node);
@@ -351,6 +352,10 @@ public class AnalysisAdapter : Analysis
         DefaultCase(node);
     }
     public virtual void CaseAMultistrFuncparams(AMultistrFuncparams node)
+    {
+        DefaultCase(node);
+    }
+    public virtual void CaseAEmptyFuncparams(AEmptyFuncparams node)
     {
         DefaultCase(node);
     }
@@ -1618,6 +1623,21 @@ public class DepthFirstAdapter : AnalysisAdapter
             node.GetFuncparams().Apply(this);
         }
         OutAMultistrFuncparams(node);
+    }
+    public virtual void InAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        InAEmptyFuncparams(node);
+        OutAEmptyFuncparams(node);
     }
     public virtual void InAIfStatement(AIfStatement node)
     {
@@ -3125,6 +3145,21 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
             node.GetKeystr().Apply(this);
         }
         OutAMultistrFuncparams(node);
+    }
+    public virtual void InAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        InAEmptyFuncparams(node);
+        OutAEmptyFuncparams(node);
     }
     public virtual void InAIfStatement(AIfStatement node)
     {

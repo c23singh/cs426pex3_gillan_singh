@@ -5307,6 +5307,42 @@ public sealed class AMultistrFuncparams : PFuncparams
     }
 
 }
+public sealed class AEmptyFuncparams : PFuncparams
+{
+
+
+    public AEmptyFuncparams (
+    )
+    {
+    }
+
+    public override Object Clone()
+    {
+        return new AEmptyFuncparams (
+        );
+    }
+
+    public override void Apply(Switch sw)
+    {
+        ((Analysis) sw).CaseAEmptyFuncparams(this);
+    }
+
+
+    public override string ToString()
+    {
+        return ""
+        ;
+    }
+
+    internal override void RemoveChild(Node child)
+    {
+    }
+
+    internal override void ReplaceChild(Node oldChild, Node newChild)
+    {
+    }
+
+}
 public sealed class AIfStatement : PIfStatement
 {
     private TKeyif _keyif_;

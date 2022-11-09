@@ -8,84 +8,94 @@ namespace CS426.analysis
 {
     class SemanticAnalyzer : DepthFirstAdapter
     {
-        Dictionary<string, Definition> globalSymbolTable;
-        Dictionary<string, Definition> localSymbolTable;
-        Dictionary<Node, Definition> decoratedParseTree;
+        // Global Symbol Table
+        // Example: Function definitions, data types, constants
+        Dictionary<string, Definition> globalSymbolTable = new Dictionary<string, Definition>();    
 
-        void PrintWarning(Token t, String message)
+        // Local Symbol  (Gets constantly wiped out)
+        // Examples: Local Variables
+        Dictionary<string, Definition> localSymbolTable = new Dictionary<string, Definition>();
+
+        // Decorated Parse Tree
+        Dictionary<Node, Definition> decoratedParseTree = new Dictionary<Node, Definition>();
+
+        public void PrintWarning(Token t, String message)
         {
-            Console.WriteLine("Error on line " + t.Line + ":" + t.Pos + " :: " + message);
+            Console.WriteLine("Line " + t.Line + ", Col" + t.Pos + ": " + message);
         }
 
         public override void InAProgram(AProgram node)
         {
-            globalSymbolTable = new Dictionary<string, Definition>();
-            localSymbolTable = new Dictionary<string, Definition>();
-            decoratedParseTree = new Dictionary<Node, Definition>();
-
+            // Create a Definition for Integers
             Definition intDefinition = new NumberDefinition();
             intDefinition.name = "int";
 
-            Definition stringDefinition = new StringDefinition();
-            stringDefinition.name = "string";
+            // Create a Defnition for Strings
+            Definition strDefinition = new StringDefinition();
+            strDefinition.name = "string";
 
+            // Register the definitions with the global symbol table
             globalSymbolTable.Add("int", intDefinition);
-            globalSymbolTable.Add("string", stringDefinition);
+            globalSymbolTable.Add("string", strDefinition);
         }
 
-        // ----------------------------------------------------------------
-        // OPERAND
-        // ----------------------------------------------------------------
+        // --------------------------------------------------------------
+        // Operands
+        // --------------------------------------------------------------
+
         public override void OutAIntOperand(AIntOperand node)
         {
+            // Create the definition
             Definition intDefinition = new NumberDefinition();
             intDefinition.name = "int";
 
             decoratedParseTree.Add(node, intDefinition);
         }
 
-        public override void OutAStringOperand(AStringOperand node)
+        public override void OutAStrOperand(AStrOperand node)
         {
-            Definition stringDefinition = new StringDefinition();
-            stringDefinition.name = "string";
+            Definition strDefinition = new StringDefinition();
+            strDefinition.name = "string";
 
-            decoratedParseTree.Add(node, stringDefinition);
+            decoratedParseTree.Add(node, strDefinition);
         }
 
         public override void OutAVariableOperand(AVariableOperand node)
         {
-            // Step 1:  Get thename of the id
+            // Get Name of ID
             String varName = node.GetId().Text;
 
-            // Make a Object to Store the Definition
             Definition varDefinition;
 
-            if (!localSymbolTable.TryGetValue(varName, out varDefinition))
+            // Test to see if the varName is in the symbol table
+            if(!localSymbolTable.TryGetValue( varName, out varDefinition))
             {
-                PrintWarning(node.GetId(), varName + " not found");
+                PrintWarning(node.GetId(), varName + " does not exist!");
             }
+            // Test to see if varDefinition is actually a variable
             else if (!(varDefinition is VariableDefinition))
             {
-                PrintWarning(node.GetId(), varName + " is not a variable");
+                PrintWarning(node.GetId(), varName + " is not a variable!");
             }
+            // Otherwise, we decorate the node with the variable type
             else
             {
                 VariableDefinition v = (VariableDefinition)varDefinition;
-
                 decoratedParseTree.Add(node, v.variableType);
             }
         }
 
-        // ----------------------------------------------------------------
-        // EXPRESSION 3
-        // ----------------------------------------------------------------
-        public override void OutAPassExpression3(APassExpression3 node)
+        // --------------------------------------------------------------
+        // Expression 6
+        // --------------------------------------------------------------
+
+        public override void OutAPassExpression6(APassExpression6 node)
         {
             Definition operandDefinition;
 
             if (!decoratedParseTree.TryGetValue(node.GetOperand(), out operandDefinition))
             {
-                // If the tree wasn't decorated, the problem/error was printed at a lower level
+                // Error would have bee caught at a lower level so no need to print
             }
             else
             {
@@ -93,45 +103,37 @@ namespace CS426.analysis
             }
         }
 
-        public override void OutANegativeExpression3(ANegativeExpression3 node)
+        public override void OutANegativeExpression6(ANegativeExpression6 node)
         {
+            Definition operandDefinition;
 
-        }
-
-        // ----------------------------------------------------------------
-        // EXPRESSION 2
-        // ----------------------------------------------------------------
-        public override void OutAPassExpression2(APassExpression2 node)
-        {
-            Definition expression3Def;
-
-            if (!decoratedParseTree.TryGetValue(node.GetExpression3(), out expression3Def))
+            if (!decoratedParseTree.TryGetValue(node.GetOperand(), out operandDefinition))
             {
-                // If the tree wasn't decorated, the problem/error was printed at a lower level
+                // Error would have bee caught at a lower level so no need to print
+            }
+            else if (!(operandDefinition is NumberDefinition))
+            {
+                PrintWarning(node.GetMinus(), "Only a number can be negated!");
             }
             else
             {
-                decoratedParseTree.Add(node, expression3Def);
+                decoratedParseTree.Add(node, operandDefinition);
             }
         }
 
-        // ----------------------------------------------------------------
-        // EXPRESSION 1
-        // ----------------------------------------------------------------
-        public override void OutAPassExpression(APassExpression node)
-        {
-            Definition expression2Def;
+        // --------------------------------------------------------------
+        // Declare Statement
+        // --------------------------------------------------------------
 
-            if (!decoratedParseTree.TryGetValue(node.GetExpression2(), out expression2Def))
+        public override void OutADeclareStatement(ADeclareStatement node)
+        {
+            Definition typeDef;
+            Definition idDef;
+
+            if (!globalSymbolTable.TryGetValue(node.GetType().Text, out typeDef))
             {
-                // If the tree wasn't decorated, the problem/error was printed at a lower level
-            }
-            else
-            {
-                decoratedParseTree.Add(node, expression2Def);
+
             }
         }
 
     }
-
-}
