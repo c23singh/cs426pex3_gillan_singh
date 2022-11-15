@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace CS426.analysis
@@ -401,6 +402,29 @@ namespace CS426.analysis
             }
 
 
+        }
+
+        // --------------------------------------------------------------
+        // Constant Assignment
+        // --------------------------------------------------------------
+
+        public override void OutAConstantDeclaration(AConstantDeclaration node)
+        {
+            Definition typeDef;
+            Definition assignDef;
+
+            if (!globalSymbolTable.TryGetValue(node.GetType().Text, out typeDef))
+            {
+                PrintWarning(node.GetType(), "Type " + node.GetType().Text + " does not exist!");
+            }
+            else if (!(typeDef is TypeDefinition))
+            {
+                PrintWarning(node.GetType(), "Identifier " + node.GetType().Text + " is not a recognized data type");
+            }
+            else
+            {
+
+            }
         }
 
     }

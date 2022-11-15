@@ -95,17 +95,17 @@ Productions
 	funcparams = {singleint} keyint id| {singlefloat} keyfloat id | {singlestr} keystr id | {multint} keyint id comma funcparams | {multifloat} keyfloat id comma funcparams | {multistr} keystr id comma funcparams | {empty} ;
 
 	// If and while
-	if_statement = keyif [headero]:openp conditional [headerc]:closep [bodyo]:openp statements [bodyc]:closep;
-	conditional = {single} negation comparison | {multipleand} negation comparison conjunction conditional;
-	negation = {negate} notl | {dontnegate} ;
-	boolean = {var} id | {int} integer;
-	conjunction = {and} andl | {pass} conjunction2;
-	conjunction2 = orl;
-	comparison = {compare}[leftside]:expression operation [rightside]:expression | {booleanint} integer | {booleanvar} id;
-	operation = {greq} greatereq | {greater} greater | {leq} lesseq | {less} less | {equivalence} equiv;
-	while_statement = keywhile [headero]:openp conditional [headerc]:closep [bodyo]:openp statements [bodyc]:closep;
+	if_statement = keyif [headero]:openp logical [headerc]:closep [bodyo]:openp statements [bodyc]:closep;
+	while_statement = keywhile [headero]:openp logical [headerc]:closep [bodyo]:openp statements [bodyc]:closep;
 
 	// Main and Comments
 	main_block = keymain openp statements closep;
+
+	// Logic
+	equality = {greq} greatereq | {greater} greater | {leq} lesseq | {less} less | {equivalence} equiv;
+	logical = {and} logical andl logical2 | {pass} logical2 ;
+	logical2 = {or} logical2 orl logical3 | {pass} logical3 ; 
+	logical3 = {not} notl comparison | {pass} comparison ;
+	comparison = {compare} [left]:expression equality [right]:expression | {nocompare} expression ;
 	
 
