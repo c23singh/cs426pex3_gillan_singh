@@ -586,5 +586,46 @@ namespace CS426.analysis
                 decoratedParseTree.Add(node, logicalDefinition);
             }
         }
+
+        // --------------------------------------------------------------
+        // If/While
+        // --------------------------------------------------------------
+
+        public override void OutAIfStatement(AIfStatement node)
+        {
+            Definition logicalDef;
+
+            if(!decoratedParseTree.TryGetValue(node.GetLogical(), out logicalDef))
+            {
+                // Error would have been caught at a lower level so no need to print
+            }
+            else if(!(logicalDef is BooleanDefinition))
+            {
+                PrintWarning(node.GetKeyif(), "Only booleans can be used with an if statement.");
+            }
+            else
+            {
+                // No need to do anything here
+            }
+        }
+
+        public override void OutAWhileStatement(AWhileStatement node)
+        {
+            Definition logicalDef;
+
+            if (!decoratedParseTree.TryGetValue(node.GetLogical(), out logicalDef))
+            {
+                // Error would have been caught at a lower level so no need to print
+            }
+            else if (!(logicalDef is BooleanDefinition))
+            {
+                PrintWarning(node.GetKeywhile(), "Only booleans can be used with a while statement.");
+            }
+            else
+            {
+                // No need to do anything here
+            }
+        }
     }
+
 }
