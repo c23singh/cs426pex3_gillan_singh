@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Net;
 using System.Text;
 
 namespace CS426.analysis
@@ -405,27 +406,185 @@ namespace CS426.analysis
         }
 
         // --------------------------------------------------------------
-        // Constant Assignment
+        // Comparison (types must match and must be a number)
         // --------------------------------------------------------------
 
-        public override void OutAConstantDeclaration(AConstantDeclaration node)
+        public override void OutANocompareComparison(ANocompareComparison node)
         {
-            Definition typeDef;
-            Definition assignDef;
+            Definition boolDefinition = new BooleanDefinition();
+            boolDefinition.name = "bool";
+            Definition expressionDef;
 
-            if (!globalSymbolTable.TryGetValue(node.GetType().Text, out typeDef))
+            if(!decoratedParseTree.TryGetValue(node.GetExpression(), out expressionDef))
             {
-                PrintWarning(node.GetType(), "Type " + node.GetType().Text + " does not exist!");
+                // There was an error, but we don't have to print it here
             }
-            else if (!(typeDef is TypeDefinition))
+            else if(!(expressionDef is NumberDefinition))
             {
-                PrintWarning(node.GetType(), "Identifier " + node.GetType().Text + " is not a recognized data type");
+                Console.WriteLine("Only numbers can be used in logical expressions!");
             }
             else
             {
-
+                decoratedParseTree.Add(node, boolDefinition);
             }
         }
 
+        public override void OutACompareComparison(ACompareComparison node)
+        {
+            Definition boolDefinition = new BooleanDefinition();
+            boolDefinition.name = "bool";
+            Definition leftExpressionDef;
+            Definition rightExpressionDef;
+
+            if (!decoratedParseTree.TryGetValue(node.GetLeft(), out leftExpressionDef))
+            {
+                // There was an error, but we don't have to print it here
+            }
+            else if (!decoratedParseTree.TryGetValue(node.GetRight(), out rightExpressionDef))
+            {
+                // There was an error, but we don't have to print it here
+            }
+            else if (!(leftExpressionDef is NumberDefinition))
+            {
+                Console.WriteLine("Only numbers can be used in logical expressions!");
+            }
+            else if (!(rightExpressionDef is NumberDefinition))
+            {
+                Console.WriteLine("Only numbers can be used in logical expressions!");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, boolDefinition);
+            }
+
+
+        }
+
+        // --------------------------------------------------------------
+        // Logical 3
+        // --------------------------------------------------------------
+
+        public override void OutAPassLogical3(APassLogical3 node)
+        {
+            Definition comparisonDefinition;
+
+            if (!decoratedParseTree.TryGetValue(node.GetComparison(), out comparisonDefinition))
+            {
+                // Error would have bee caught at a lower level so no need to print
+            }
+            else
+            {
+                decoratedParseTree.Add(node, comparisonDefinition);
+            }
+        }
+
+        public override void OutANotLogical3(ANotLogical3 node)
+        {
+            Definition comparisonDefinition; 
+
+            if (!decoratedParseTree.TryGetValue(node.GetComparison(), out comparisonDefinition))
+            {
+                // Error would have bee caught at a lower level so no need to print
+            }
+            else if (!(comparisonDefinition is BooleanDefinition))
+            {
+                PrintWarning(node.GetNotl(), "NOT can only be used on boolean values");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, comparisonDefinition);
+            }
+        }
+
+        // --------------------------------------------------------------
+        // Logical 2
+        // --------------------------------------------------------------
+
+        public override void OutAPassLogical2(APassLogical2 node)
+        {
+            Definition logical3Definition;
+
+            if (!decoratedParseTree.TryGetValue(node.GetLogical3(), out logical3Definition))
+            {
+                // Error would have bee caught at a lower level so no need to print
+            }
+            else
+            {
+                decoratedParseTree.Add(node, logical3Definition);
+            }
+        }
+
+        public override void OutAOrLogical2(AOrLogical2 node)
+        {
+            Definition logical3Definition;
+            Definition logical2Definition;
+
+            if (!decoratedParseTree.TryGetValue(node.GetLogical3(), out logical3Definition))
+            {
+                // Error would have bee caught at a lower level so no need to print
+            }
+            else if (!decoratedParseTree.TryGetValue(node.GetLogical2(), out logical2Definition))
+            {
+                // Error would have bee caught at a lower level so no need to print
+            }
+            else if (!(logical2Definition is BooleanDefinition))
+            {
+                PrintWarning(node.GetOrl(), "Left hand side is not a boolean");
+            }
+            else if (!(logical3Definition is BooleanDefinition))
+            {
+                PrintWarning(node.GetOrl(), "Right hand side is not a boolean");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, logical2Definition);
+            }
+
+        }
+
+        // --------------------------------------------------------------
+        // Logical 
+        // --------------------------------------------------------------
+
+        public override void OutAPassLogical(APassLogical node)
+        {
+            Definition logical2Definition;
+
+            if (!decoratedParseTree.TryGetValue(node.GetLogical2(), out logical2Definition))
+            {
+                // Error would have bee caught at a lower level so no need to print
+            }
+            else
+            {
+                decoratedParseTree.Add(node, logical2Definition);
+            }
+        }
+
+        public override void OutAAndLogical(AAndLogical node)
+        {
+            Definition logical2Definition;
+            Definition logicalDefinition;
+
+            if (!decoratedParseTree.TryGetValue(node.GetLogical2(), out logical2Definition))
+            {
+                // Error would have bee caught at a lower level so no need to print
+            }
+            else if (!decoratedParseTree.TryGetValue(node.GetLogical(), out logicalDefinition))
+            {
+                // Error would have bee caught at a lower level so no need to print
+            }
+            else if (!(logicalDefinition is BooleanDefinition))
+            {
+                PrintWarning(node.GetAndl(), "Left hand side is not a boolean");
+            }
+            else if (!(logical2Definition is BooleanDefinition))
+            {
+                PrintWarning(node.GetAndl(), "Right hand side is not a boolean");
+            }
+            else
+            {
+                decoratedParseTree.Add(node, logicalDefinition);
+            }
+        }
     }
 }
