@@ -28,9 +28,6 @@ public interface Analysis : Switch
     void CaseAIfblockStatement(AIfblockStatement node);
     void CaseAWhileblockStatement(AWhileblockStatement node);
     void CaseADeclareStatement(ADeclareStatement node);
-    void CaseAFloatvarVar(AFloatvarVar node);
-    void CaseAIntvarVar(AIntvarVar node);
-    void CaseAStrvarVar(AStrvarVar node);
     void CaseAConstantDeclaration(AConstantDeclaration node);
     void CaseAAssignStatement(AAssignStatement node);
     void CaseAAddExpression(AAddExpression node);
@@ -59,6 +56,7 @@ public interface Analysis : Switch
     void CaseAMultintFuncparams(AMultintFuncparams node);
     void CaseAMultifloatFuncparams(AMultifloatFuncparams node);
     void CaseAMultistrFuncparams(AMultistrFuncparams node);
+    void CaseAEmptyFuncparams(AEmptyFuncparams node);
     void CaseAIfStatement(AIfStatement node);
     void CaseASingleConditional(ASingleConditional node);
     void CaseAMultipleandConditional(AMultipleandConditional node);
@@ -230,18 +228,6 @@ public class AnalysisAdapter : Analysis
     {
         DefaultCase(node);
     }
-    public virtual void CaseAFloatvarVar(AFloatvarVar node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAIntvarVar(AIntvarVar node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAStrvarVar(AStrvarVar node)
-    {
-        DefaultCase(node);
-    }
     public virtual void CaseAConstantDeclaration(AConstantDeclaration node)
     {
         DefaultCase(node);
@@ -351,6 +337,10 @@ public class AnalysisAdapter : Analysis
         DefaultCase(node);
     }
     public virtual void CaseAMultistrFuncparams(AMultistrFuncparams node)
+    {
+        DefaultCase(node);
+    }
+    public virtual void CaseAEmptyFuncparams(AEmptyFuncparams node)
     {
         DefaultCase(node);
     }
@@ -852,76 +842,19 @@ public class DepthFirstAdapter : AnalysisAdapter
     public override void CaseADeclareStatement(ADeclareStatement node)
     {
         InADeclareStatement(node);
-        if(node.GetVar() != null)
+        if(node.GetType() != null)
         {
-            node.GetVar().Apply(this);
+            node.GetType().Apply(this);
         }
-        if(node.GetId() != null)
+        if(node.GetVarname() != null)
         {
-            node.GetId().Apply(this);
+            node.GetVarname().Apply(this);
         }
         if(node.GetEol() != null)
         {
             node.GetEol().Apply(this);
         }
         OutADeclareStatement(node);
-    }
-    public virtual void InAFloatvarVar(AFloatvarVar node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAFloatvarVar(AFloatvarVar node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAFloatvarVar(AFloatvarVar node)
-    {
-        InAFloatvarVar(node);
-        if(node.GetKeyfloat() != null)
-        {
-            node.GetKeyfloat().Apply(this);
-        }
-        OutAFloatvarVar(node);
-    }
-    public virtual void InAIntvarVar(AIntvarVar node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAIntvarVar(AIntvarVar node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAIntvarVar(AIntvarVar node)
-    {
-        InAIntvarVar(node);
-        if(node.GetKeyint() != null)
-        {
-            node.GetKeyint().Apply(this);
-        }
-        OutAIntvarVar(node);
-    }
-    public virtual void InAStrvarVar(AStrvarVar node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAStrvarVar(AStrvarVar node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAStrvarVar(AStrvarVar node)
-    {
-        InAStrvarVar(node);
-        if(node.GetKeystr() != null)
-        {
-            node.GetKeystr().Apply(this);
-        }
-        OutAStrvarVar(node);
     }
     public virtual void InAConstantDeclaration(AConstantDeclaration node)
     {
@@ -940,9 +873,9 @@ public class DepthFirstAdapter : AnalysisAdapter
         {
             node.GetKeyconst().Apply(this);
         }
-        if(node.GetVar() != null)
+        if(node.GetId() != null)
         {
-            node.GetVar().Apply(this);
+            node.GetId().Apply(this);
         }
         if(node.GetAssignStatement() != null)
         {
@@ -1618,6 +1551,21 @@ public class DepthFirstAdapter : AnalysisAdapter
             node.GetFuncparams().Apply(this);
         }
         OutAMultistrFuncparams(node);
+    }
+    public virtual void InAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        InAEmptyFuncparams(node);
+        OutAEmptyFuncparams(node);
     }
     public virtual void InAIfStatement(AIfStatement node)
     {
@@ -2363,72 +2311,15 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
         {
             node.GetEol().Apply(this);
         }
-        if(node.GetId() != null)
+        if(node.GetVarname() != null)
         {
-            node.GetId().Apply(this);
+            node.GetVarname().Apply(this);
         }
-        if(node.GetVar() != null)
+        if(node.GetType() != null)
         {
-            node.GetVar().Apply(this);
+            node.GetType().Apply(this);
         }
         OutADeclareStatement(node);
-    }
-    public virtual void InAFloatvarVar(AFloatvarVar node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAFloatvarVar(AFloatvarVar node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAFloatvarVar(AFloatvarVar node)
-    {
-        InAFloatvarVar(node);
-        if(node.GetKeyfloat() != null)
-        {
-            node.GetKeyfloat().Apply(this);
-        }
-        OutAFloatvarVar(node);
-    }
-    public virtual void InAIntvarVar(AIntvarVar node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAIntvarVar(AIntvarVar node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAIntvarVar(AIntvarVar node)
-    {
-        InAIntvarVar(node);
-        if(node.GetKeyint() != null)
-        {
-            node.GetKeyint().Apply(this);
-        }
-        OutAIntvarVar(node);
-    }
-    public virtual void InAStrvarVar(AStrvarVar node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAStrvarVar(AStrvarVar node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAStrvarVar(AStrvarVar node)
-    {
-        InAStrvarVar(node);
-        if(node.GetKeystr() != null)
-        {
-            node.GetKeystr().Apply(this);
-        }
-        OutAStrvarVar(node);
     }
     public virtual void InAConstantDeclaration(AConstantDeclaration node)
     {
@@ -2447,9 +2338,9 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
         {
             node.GetAssignStatement().Apply(this);
         }
-        if(node.GetVar() != null)
+        if(node.GetId() != null)
         {
-            node.GetVar().Apply(this);
+            node.GetId().Apply(this);
         }
         if(node.GetKeyconst() != null)
         {
@@ -3125,6 +3016,21 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
             node.GetKeystr().Apply(this);
         }
         OutAMultistrFuncparams(node);
+    }
+    public virtual void InAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAEmptyFuncparams(AEmptyFuncparams node)
+    {
+        InAEmptyFuncparams(node);
+        OutAEmptyFuncparams(node);
     }
     public virtual void InAIfStatement(AIfStatement node)
     {

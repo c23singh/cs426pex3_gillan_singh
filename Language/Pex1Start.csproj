@@ -46,11 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="analysis.cs" />
+    <Compile Include="Definition.cs" />
     <Compile Include="lexer.cs" />
     <Compile Include="nodes.cs" />
     <Compile Include="parser.cs" />
     <Compile Include="prods.cs" />
     <Compile Include="main.cs" />
+    <Compile Include="SemanticAnalyzer.cs" />
     <Compile Include="tokens.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +75,7 @@
     <Content Include="testcases\pex1\strings_good.txt" />
     <Content Include="testcases\pex1\operators.txt" />
     <Content Include="testcases\pex1\keywords.txt" />
+    <Content Include="testcases\pex3\test1.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".vs\Pex1Start\v17\.suo" />
@@ -86,7 +89,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="testcases\pex2\" />
-    <Folder Include="testcases\pex3\" />
     <Folder Include="testcases\pex4\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />

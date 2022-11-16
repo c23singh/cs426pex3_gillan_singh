@@ -14,3 +14,11 @@ C:\Users\alexsingh\Documents\CS426\cs426pex3_gillan_singh\Language\obj\x86\Debug
 C:\Users\alexsingh\Documents\CS426\cs426pex3_gillan_singh\Language\obj\x86\Debug\pex1start.csproj.CoreCompileInputs.cache
 C:\Users\alexsingh\Documents\CS426\cs426pex3_gillan_singh\Language\obj\x86\Debug\ConsoleApplication.exe
 C:\Users\alexsingh\Documents\CS426\cs426pex3_gillan_singh\Language\obj\x86\Debug\ConsoleApplication.pdb
+C:\Users\alexsingh\Documents\test\pls work\cs426pex3_gillan_singh-e40e57a3ee6d7656940cfc4a53bbf872ecfafdf0\Language\bin\Debug\ConsoleApplication.exe.config
+C:\Users\alexsingh\Documents\test\pls work\cs426pex3_gillan_singh-e40e57a3ee6d7656940cfc4a53bbf872ecfafdf0\Language\bin\Debug\ConsoleApplication.exe
+C:\Users\alexsingh\Documents\test\pls work\cs426pex3_gillan_singh-e40e57a3ee6d7656940cfc4a53bbf872ecfafdf0\Language\bin\Debug\ConsoleApplication.pdb
+C:\Users\alexsingh\Documents\test\pls work\cs426pex3_gillan_singh-e40e57a3ee6d7656940cfc4a53bbf872ecfafdf0\Language\obj\x86\Debug\pex1start.csproj.AssemblyReference.cache
+C:\Users\alexsingh\Documents\test\pls work\cs426pex3_gillan_singh-e40e57a3ee6d7656940cfc4a53bbf872ecfafdf0\Language\obj\x86\Debug\pex1start.csproj.SuggestedBindingRedirects.cache
+C:\Users\alexsingh\Documents\test\pls work\cs426pex3_gillan_singh-e40e57a3ee6d7656940cfc4a53bbf872ecfafdf0\Language\obj\x86\Debug\pex1start.csproj.CoreCompileInputs.cache
+C:\Users\alexsingh\Documents\test\pls work\cs426pex3_gillan_singh-e40e57a3ee6d7656940cfc4a53bbf872ecfafdf0\Language\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\alexsingh\Documents\test\pls work\cs426pex3_gillan_singh-e40e57a3ee6d7656940cfc4a53bbf872ecfafdf0\Language\obj\x86\Debug\ConsoleApplication.pdb

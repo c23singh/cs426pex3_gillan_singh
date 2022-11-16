@@ -1,9 +1,6 @@
-﻿main(
-	int x;
+﻿func foo()(
+)
 
-	x = "banana";
-
-	if(x)(
-
-	)
+main(
+	x = "sandwich";
 )

@@ -74,9 +74,8 @@ Productions
 	statement = {declaration} declare_statement | {assignment} assign_statement | {call} function_statement | {ifblock} if_statement | {whileblock} while_statement;
 
 	// Declarations
-	declare_statement = var id eol;
-	var = {floatvar} keyfloat | {intvar} keyint | {strvar} keystr;
-	constant_declaration = keyconst var assign_statement;
+	declare_statement = [type]:id [varname]:id eol;
+	constant_declaration = keyconst id assign_statement;
 
 	// Assignment
 	assign_statement = id assign expression eol;
@@ -93,7 +92,7 @@ Productions
 	function_statement = id openp parameters closep eol;
 	parameters = {single} expression | {multiple} expression comma parameters;
 	define_function = keyfunc id [paramopen]:openp funcparams [paramclose]:closep [funcopen]:openp statements [funcclose]:closep;
-	funcparams = {singleint} keyint id| {singlefloat} keyfloat id | {singlestr} keystr id | {multint} keyint id comma funcparams | {multifloat} keyfloat id comma funcparams | {multistr} keystr id comma funcparams;
+	funcparams = {singleint} keyint id| {singlefloat} keyfloat id | {singlestr} keystr id | {multint} keyint id comma funcparams | {multifloat} keyfloat id comma funcparams | {multistr} keystr id comma funcparams | {empty} ;
 
 	// If and while
 	if_statement = keyif [headero]:openp conditional [headerc]:closep [bodyo]:openp statements [bodyc]:closep;
@@ -108,3 +107,5 @@ Productions
 
 	// Main and Comments
 	main_block = keymain openp statements closep;
+	
+
