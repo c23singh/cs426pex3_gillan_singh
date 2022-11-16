@@ -1,257 +1,800 @@
 PEX TEST CASES (C1C Alex Singh) 
 Testing Assign and Arithmetic 
-Line 2, Col5: Identifier x does not exist
-Line 3, Col5: Identifier x does not exist
-Line 4, Col5: Identifier x does not exist
-Line 5, Col5: Identifier x does not exist
 
-- AProgram
-     `- ASingleConstdec
-     |- ASingleFuncdec
-     `- AMainBlock
-        |- main
-        |- (
-        |- AMultipleStatements
-        |  |- AAssignmentStatement
-        |  |  `- AAssignStatement
-        |  |     |- x
-        |  |     |- =
-        |  |     |- APassExpression
-        |  |     |  `- APassExpression2
-        |  |     |     `- APassExpression3
-        |  |     |        `- APassExpression4
-        |  |     |           `- APassExpression5
-        |  |     |              `- APassExpression6
-        |  |     |                 `- AIntOperand
-        |  |     |                    `- 12
-        |  |     `- ;
-        |  `- AMultipleStatements
-        |     |- AAssignmentStatement
-        |     |  `- AAssignStatement
-        |     |     |- x
-        |     |     |- =
-        |     |     |- APassExpression
-        |     |     |  `- APassExpression2
-        |     |     |     `- APassExpression3
-        |     |     |        `- APassExpression4
-        |     |     |           `- APassExpression5
-        |     |     |              `- ANegativeExpression6
-        |     |     |                 |- -
-        |     |     |                 `- AIntOperand
-        |     |     |                    `- 12
-        |     |     `- ;
-        |     `- AMultipleStatements
-        |        |- AAssignmentStatement
-        |        |  `- AAssignStatement
-        |        |     |- x
-        |        |     |- =
-        |        |     |- AAddExpression
-        |        |     |  |- APassExpression
-        |        |     |  |  `- APassExpression2
-        |        |     |  |     `- APassExpression3
-        |        |     |  |        `- APassExpression4
-        |        |     |  |           `- APassExpression5
-        |        |     |  |              `- APassExpression6
-        |        |     |  |                 `- AIntOperand
-        |        |     |  |                    `- 12
-        |        |     |  |- +
-        |        |     |  `- APassExpression2
-        |        |     |     `- APassExpression3
-        |        |     |        `- APassExpression4
-        |        |     |           `- APassExpression5
-        |        |     |              `- APassExpression6
-        |        |     |                 `- AIntOperand
-        |        |     |                    `- 12
-        |        |     `- ;
-        |        `- AMultipleStatements
-        |           `- AAssignmentStatement
-        |           |  `- AAssignStatement
-        |           |     |- x
-        |           |     |- =
-        |           |     |- AAddExpression
-        |           |     |  |- APassExpression
-        |           |     |  |  `- APassExpression2
-        |           |     |  |     `- APassExpression3
-        |           |     |  |        `- APassExpression4
-        |           |     |  |           `- APassExpression5
-        |           |     |  |              `- APassExpression6
-        |           |     |  |                 `- AIntOperand
-        |           |     |  |                    `- 12
-        |           |     |  |- +
-        |           |     |  `- APassExpression2
-        |           |     |     `- AMultiplyExpression3
-        |           |     |        |- APassExpression3
-        |           |     |        |  `- ADivideExpression4
-        |           |     |        |     |- APassExpression4
-        |           |     |        |     |  `- AParenthesisExpression5
-        |           |     |        |     |     |- (
-        |           |     |        |     |     |- APassExpression
-        |           |     |        |     |     |  `- ASubtractExpression2
-        |           |     |        |     |     |     |- APassExpression2
-        |           |     |        |     |     |     |  `- APassExpression3
-        |           |     |        |     |     |     |     `- APassExpression4
-        |           |     |        |     |     |     |        `- APassExpression5
-        |           |     |        |     |     |     |           `- APassExpression6
-        |           |     |        |     |     |     |              `- AIntOperand
-        |           |     |        |     |     |     |                 `- 12
-        |           |     |        |     |     |     |- -
-        |           |     |        |     |     |     `- APassExpression3
-        |           |     |        |     |     |        `- APassExpression4
-        |           |     |        |     |     |           `- APassExpression5
-        |           |     |        |     |     |              `- APassExpression6
-        |           |     |        |     |     |                 `- AIntOperand
-        |           |     |        |     |     |                    `- 12
-        |           |     |        |     |     `- )
-        |           |     |        |     |- /
-        |           |     |        |     `- APassExpression5
-        |           |     |        |        `- APassExpression6
-        |           |     |        |           `- AIntOperand
-        |           |     |        |              `- 12
-        |           |     |        |- *
-        |           |     |        `- APassExpression4
-        |           |     |           `- APassExpression5
-        |           |     |              `- APassExpression6
-        |           |     |                 `- AIntOperand
-        |           |     |                    `- 12
-        |           |     `- ;
-        |           `- ASingleStatements
-        `- )
+- AMultipleProgram
+     `- AMainIamupset
+     |  `- AMainBlock
+     |     |- main
+     |     |- (
+     |     |- AMultipleStatements
+     |     |  |- AAssignmentStatement
+     |     |  |  `- AAssignStatement
+     |     |  |     |- x
+     |     |  |     |- =
+     |     |  |     |- APassExpression
+     |     |  |     |  `- APassExpression2
+     |     |  |     |     `- APassExpression3
+     |     |  |     |        `- APassExpression4
+     |     |  |     |           `- APassExpression5
+     |     |  |     |              `- AIntOperand
+     |     |  |     |                 `- 12
+     |     |  |     `- ;
+     |     |  `- AMultipleStatements
+     |     |     |- AAssignmentStatement
+     |     |     |  `- AAssignStatement
+     |     |     |     |- x
+     |     |     |     |- =
+     |     |     |     |- APassExpression
+     |     |     |     |  `- APassExpression2
+     |     |     |     |     `- APassExpression3
+     |     |     |     |        `- APassExpression4
+     |     |     |     |           `- ANegativeExpression5
+     |     |     |     |              |- -
+     |     |     |     |              `- AIntOperand
+     |     |     |     |                 `- 12
+     |     |     |     `- ;
+     |     |     `- AMultipleStatements
+     |     |        |- AAssignmentStatement
+     |     |        |  `- AAssignStatement
+     |     |        |     |- x
+     |     |        |     |- =
+     |     |        |     |- AAddExpression
+     |     |        |     |  |- APassExpression
+     |     |        |     |  |  `- APassExpression2
+     |     |        |     |  |     `- APassExpression3
+     |     |        |     |  |        `- APassExpression4
+     |     |        |     |  |           `- APassExpression5
+     |     |        |     |  |              `- AIntOperand
+     |     |        |     |  |                 `- 12
+     |     |        |     |  |- +
+     |     |        |     |  `- APassExpression2
+     |     |        |     |     `- APassExpression3
+     |     |        |     |        `- APassExpression4
+     |     |        |     |           `- APassExpression5
+     |     |        |     |              `- AIntOperand
+     |     |        |     |                 `- 12
+     |     |        |     `- ;
+     |     |        `- AMultipleStatements
+     |     |           `- AAssignmentStatement
+     |     |           |  `- AAssignStatement
+     |     |           |     |- x
+     |     |           |     |- =
+     |     |           |     |- AAddExpression
+     |     |           |     |  |- APassExpression
+     |     |           |     |  |  `- APassExpression2
+     |     |           |     |  |     `- APassExpression3
+     |     |           |     |  |        `- APassExpression4
+     |     |           |     |  |           `- APassExpression5
+     |     |           |     |  |              `- AIntOperand
+     |     |           |     |  |                 `- 12
+     |     |           |     |  |- +
+     |     |           |     |  `- APassExpression2
+     |     |           |     |     `- AMultiplyExpression3
+     |     |           |     |        |- APassExpression3
+     |     |           |     |        |  `- ADivideExpression4
+     |     |           |     |        |     |- APassExpression4
+     |     |           |     |        |     |  `- AParenthesisExpression5
+     |     |           |     |        |     |     |- (
+     |     |           |     |        |     |     |- APassExpression
+     |     |           |     |        |     |     |  `- ASubtractExpression2
+     |     |           |     |        |     |     |     |- APassExpression2
+     |     |           |     |        |     |     |     |  `- APassExpression3
+     |     |           |     |        |     |     |     |     `- APassExpression4
+     |     |           |     |        |     |     |     |        `- APassExpression5
+     |     |           |     |        |     |     |     |           `- AIntOperand
+     |     |           |     |        |     |     |     |              `- 12
+     |     |           |     |        |     |     |     |- -
+     |     |           |     |        |     |     |     `- APassExpression3
+     |     |           |     |        |     |     |        `- APassExpression4
+     |     |           |     |        |     |     |           `- APassExpression5
+     |     |           |     |        |     |     |              `- AIntOperand
+     |     |           |     |        |     |     |                 `- 12
+     |     |           |     |        |     |     `- )
+     |     |           |     |        |     |- /
+     |     |           |     |        |     `- APassExpression5
+     |     |           |     |        |        `- AIntOperand
+     |     |           |     |        |           `- 12
+     |     |           |     |        |- *
+     |     |           |     |        `- APassExpression4
+     |     |           |     |           `- APassExpression5
+     |     |           |     |              `- AIntOperand
+     |     |           |     |                 `- 12
+     |     |           |     `- ;
+     |     |           `- ASingleStatements
+     |     `- )
+     `- ASingleProgram
 
  
 Testing Booleans 
-[3,9] expecting: ')'
+
+- AMultipleProgram
+     `- AMainIamupset
+     |  `- AMainBlock
+     |     |- main
+     |     |- (
+     |     |- AMultipleStatements
+     |     |  |- AIfblockStatement
+     |     |  |  `- AIfStatement
+     |     |  |     |- if
+     |     |  |     `- (
+     |     |  |     |- AMultipleandConditional
+     |     |  |     |  |- ADontnegateNegation
+     |     |  |     |  |- ABooleanvarComparison
+     |     |  |     |  |  `- x
+     |     |  |     |  `- AAndConjunction
+     |     |  |     |  |  `- AND
+     |     |  |     |  `- AMultipleandConditional
+     |     |  |     |     |- ADontnegateNegation
+     |     |  |     |     |- ABooleanvarComparison
+     |     |  |     |     |  `- y
+     |     |  |     |     `- AConjunction
+     |     |  |     |     |  `- OR
+     |     |  |     |     `- ASingleConditional
+     |     |  |     |        |- ADontnegateNegation
+     |     |  |     |        `- ABooleanvarComparison
+     |     |  |     |           `- j
+     |     |  |     |- )
+     |     |  |     |- (
+     |     |  |     |- AMultipleStatements
+     |     |  |     |  `- ADeclarationStatement
+     |     |  |     |  |  `- ADeclareStatement
+     |     |  |     |  |     |- AIntvarVar
+     |     |  |     |  |     |  `- int
+     |     |  |     |  |     |- x
+     |     |  |     |  |     `- ;
+     |     |  |     |  `- ASingleStatements
+     |     |  |     `- )
+     |     |  `- AMultipleStatements
+     |     |     |- AIfblockStatement
+     |     |     |  `- AIfStatement
+     |     |     |     |- if
+     |     |     |     |- (
+     |     |     |     |- AMultipleandConditional
+     |     |     |     |  |- ANegateNegation
+     |     |     |     |  |  `- NOT
+     |     |     |     |  |- ABooleanintComparison
+     |     |     |     |  |  `- 0
+     |     |     |     |  `- AAndConjunction
+     |     |     |     |  |  `- AND
+     |     |     |     |  `- ASingleConditional
+     |     |     |     |     |- ADontnegateNegation
+     |     |     |     |     `- ABooleanintComparison
+     |     |     |     |        `- 1
+     |     |     |     |- )
+     |     |     |     |- (
+     |     |     |     |- AMultipleStatements
+     |     |     |     |  `- ADeclarationStatement
+     |     |     |     |  |  `- ADeclareStatement
+     |     |     |     |  |     |- AIntvarVar
+     |     |     |     |  |     |  `- int
+     |     |     |     |  |     |- x
+     |     |     |     |  |     `- ;
+     |     |     |     |  `- ASingleStatements
+     |     |     |     `- )
+     |     |     `- AMultipleStatements
+     |     |        `- AIfblockStatement
+     |     |        |  `- AIfStatement
+     |     |        |     |- if
+     |     |        |     `- (
+     |     |        |     |- AMultipleandConditional
+     |     |        |     |  |- ADontnegateNegation
+     |     |        |     |  |- ACompareComparison
+     |     |        |     |  |  |- APassExpression
+     |     |        |     |  |  |  `- APassExpression2
+     |     |        |     |  |  |     `- APassExpression3
+     |     |        |     |  |  |        `- APassExpression4
+     |     |        |     |  |  |           `- APassExpression5
+     |     |        |     |  |  |              `- AVariableOperand
+     |     |        |     |  |  |                 `- x
+     |     |        |     |  |  |- AGreqOperation
+     |     |        |     |  |  |  `- >=
+     |     |        |     |  |  `- APassExpression
+     |     |        |     |  |     `- APassExpression2
+     |     |        |     |  |        `- APassExpression3
+     |     |        |     |  |           `- APassExpression4
+     |     |        |     |  |              `- APassExpression5
+     |     |        |     |  |                 `- AVariableOperand
+     |     |        |     |  |                    `- y
+     |     |        |     |  `- AAndConjunction
+     |     |        |     |  |  `- AND
+     |     |        |     |  `- AMultipleandConditional
+     |     |        |     |     |- ADontnegateNegation
+     |     |        |     |     |- ACompareComparison
+     |     |        |     |     |  |- APassExpression
+     |     |        |     |     |  |  `- APassExpression2
+     |     |        |     |     |  |     `- APassExpression3
+     |     |        |     |     |  |        `- APassExpression4
+     |     |        |     |     |  |           `- APassExpression5
+     |     |        |     |     |  |              `- AIntOperand
+     |     |        |     |     |  |                 `- 1
+     |     |        |     |     |  |- ALessOperation
+     |     |        |     |     |  |  `- <
+     |     |        |     |     |  `- APassExpression
+     |     |        |     |     |     `- APassExpression2
+     |     |        |     |     |        `- APassExpression3
+     |     |        |     |     |           `- APassExpression4
+     |     |        |     |     |              `- APassExpression5
+     |     |        |     |     |                 `- AIntOperand
+     |     |        |     |     |                    `- 2
+     |     |        |     |     `- AConjunction
+     |     |        |     |     |  `- OR
+     |     |        |     |     `- ASingleConditional
+     |     |        |     |        |- ADontnegateNegation
+     |     |        |     |        `- ACompareComparison
+     |     |        |     |           |- APassExpression
+     |     |        |     |           |  `- APassExpression2
+     |     |        |     |           |     `- APassExpression3
+     |     |        |     |           |        `- APassExpression4
+     |     |        |     |           |           `- APassExpression5
+     |     |        |     |           |              `- AVariableOperand
+     |     |        |     |           |                 `- p
+     |     |        |     |           |- AEquivalenceOperation
+     |     |        |     |           |  `- ==
+     |     |        |     |           `- APassExpression
+     |     |        |     |              `- APassExpression2
+     |     |        |     |                 `- APassExpression3
+     |     |        |     |                    `- APassExpression4
+     |     |        |     |                       `- APassExpression5
+     |     |        |     |                          `- AVariableOperand
+     |     |        |     |                             `- q
+     |     |        |     |- )
+     |     |        |     |- (
+     |     |        |     |- AMultipleStatements
+     |     |        |     |  `- ADeclarationStatement
+     |     |        |     |  |  `- ADeclareStatement
+     |     |        |     |  |     |- AIntvarVar
+     |     |        |     |  |     |  `- int
+     |     |        |     |  |     |- x
+     |     |        |     |  |     `- ;
+     |     |        |     |  `- ASingleStatements
+     |     |        |     `- )
+     |     |        `- ASingleStatements
+     |     `- )
+     `- ASingleProgram
+
  
 Testing Function Declaration 
-[2,5] expecting: ')'
+
+- AMultipleProgram
+     |- AFunctionsIamupset
+     |  `- ADefineFunction
+     |     |- func
+     |     |- foo
+     |     |- (
+     |     |- AMultintFuncparams
+     |     |  |- int
+     |     |  |- x
+     |     |  |- ,
+     |     |  `- AMultifloatFuncparams
+     |     |     |- float
+     |     |     |- y
+     |     |     |- ,
+     |     |     `- ASinglestrFuncparams
+     |     |        |- str
+     |     |        `- z
+     |     |- )
+     |     |- (
+     |     |- AMultipleStatements
+     |     |  `- ADeclarationStatement
+     |     |  |  `- ADeclareStatement
+     |     |  |     |- AIntvarVar
+     |     |  |     |  `- int
+     |     |  |     |- x
+     |     |  |     `- ;
+     |     |  `- ASingleStatements
+     |     `- )
+     `- AMultipleProgram
+        |- AFunctionsIamupset
+        |  `- ADefineFunction
+        |     |- func
+        |     |- foo2
+        |     |- (
+        |     |- ASingleintFuncparams
+        |     |  |- int
+        |     |  `- x
+        |     |- )
+        |     |- (
+        |     |- AMultipleStatements
+        |     |  `- ADeclarationStatement
+        |     |  |  `- ADeclareStatement
+        |     |  |     |- AIntvarVar
+        |     |  |     |  `- int
+        |     |  |     |- x
+        |     |  |     `- ;
+        |     |  `- ASingleStatements
+        |     `- )
+        `- AMultipleProgram
+           `- AFunctionsIamupset
+           |  `- ADefineFunction
+           |     |- func
+           |     |- foo3
+           |     |- (
+           |     |- AMultintFuncparams
+           |     |  |- int
+           |     |  |- x
+           |     |  |- ,
+           |     |  `- ASinglefloatFuncparams
+           |     |     |- float
+           |     |     `- z
+           |     |- )
+           |     |- (
+           |     |- AMultipleStatements
+           |     |  `- ADeclarationStatement
+           |     |  |  `- ADeclareStatement
+           |     |  |     |- AIntvarVar
+           |     |  |     |  `- int
+           |     |  |     |- x
+           |     |  |     `- ;
+           |     |  `- ASingleStatements
+           |     `- )
+           `- ASingleProgram
+
  
 Testing If Statements 
-[3,9] expecting: ')'
+
+- AMultipleProgram
+     `- AMainIamupset
+     |  `- AMainBlock
+     |     |- main
+     |     |- (
+     |     |- AMultipleStatements
+     |     |  |- AIfblockStatement
+     |     |  |  `- AIfStatement
+     |     |  |     |- if
+     |     |  |     `- (
+     |     |  |     |- ASingleConditional
+     |     |  |     |  |- ADontnegateNegation
+     |     |  |     |  `- ABooleanintComparison
+     |     |  |     |     `- 1
+     |     |  |     |- )
+     |     |  |     |- (
+     |     |  |     |- AMultipleStatements
+     |     |  |     |  `- ADeclarationStatement
+     |     |  |     |  |  `- ADeclareStatement
+     |     |  |     |  |     |- AIntvarVar
+     |     |  |     |  |     |  `- int
+     |     |  |     |  |     |- x
+     |     |  |     |  |     `- ;
+     |     |  |     |  `- ASingleStatements
+     |     |  |     `- )
+     |     |  `- AMultipleStatements
+     |     |     |- AIfblockStatement
+     |     |     |  `- AIfStatement
+     |     |     |     |- if
+     |     |     |     `- (
+     |     |     |     |- ASingleConditional
+     |     |     |     |  |- ADontnegateNegation
+     |     |     |     |  `- ACompareComparison
+     |     |     |     |     |- APassExpression
+     |     |     |     |     |  `- APassExpression2
+     |     |     |     |     |     `- APassExpression3
+     |     |     |     |     |        `- APassExpression4
+     |     |     |     |     |           `- APassExpression5
+     |     |     |     |     |              `- AIntOperand
+     |     |     |     |     |                 `- 1
+     |     |     |     |     |- AGreaterOperation
+     |     |     |     |     |  `- >
+     |     |     |     |     `- APassExpression
+     |     |     |     |        `- APassExpression2
+     |     |     |     |           `- APassExpression3
+     |     |     |     |              `- APassExpression4
+     |     |     |     |                 `- APassExpression5
+     |     |     |     |                    `- AIntOperand
+     |     |     |     |                       `- 2
+     |     |     |     |- )
+     |     |     |     |- (
+     |     |     |     |- AMultipleStatements
+     |     |     |     |  `- ADeclarationStatement
+     |     |     |     |  |  `- ADeclareStatement
+     |     |     |     |  |     |- AIntvarVar
+     |     |     |     |  |     |  `- int
+     |     |     |     |  |     |- x
+     |     |     |     |  |     `- ;
+     |     |     |     |  `- ASingleStatements
+     |     |     |     `- )
+     |     |     `- AMultipleStatements
+     |     |        `- AIfblockStatement
+     |     |        |  `- AIfStatement
+     |     |        |     |- if
+     |     |        |     `- (
+     |     |        |     |- ASingleConditional
+     |     |        |     |  |- ADontnegateNegation
+     |     |        |     |  `- ACompareComparison
+     |     |        |     |     |- APassExpression
+     |     |        |     |     |  `- APassExpression2
+     |     |        |     |     |     `- APassExpression3
+     |     |        |     |     |        `- APassExpression4
+     |     |        |     |     |           `- APassExpression5
+     |     |        |     |     |              `- AIntOperand
+     |     |        |     |     |                 `- 1
+     |     |        |     |     |- ALeqOperation
+     |     |        |     |     |  `- <=
+     |     |        |     |     `- APassExpression
+     |     |        |     |        `- APassExpression2
+     |     |        |     |           `- APassExpression3
+     |     |        |     |              `- APassExpression4
+     |     |        |     |                 `- APassExpression5
+     |     |        |     |                    `- AIntOperand
+     |     |        |     |                       `- 2
+     |     |        |     |- )
+     |     |        |     |- (
+     |     |        |     |- AMultipleStatements
+     |     |        |     |  `- AIfblockStatement
+     |     |        |     |  |  `- AIfStatement
+     |     |        |     |  |     |- if
+     |     |        |     |  |     |- (
+     |     |        |     |  |     |- ASingleConditional
+     |     |        |     |  |     |  |- ANegateNegation
+     |     |        |     |  |     |  |  `- NOT
+     |     |        |     |  |     |  `- ABooleanintComparison
+     |     |        |     |  |     |     `- 1
+     |     |        |     |  |     |- )
+     |     |        |     |  |     |- (
+     |     |        |     |  |     |- AMultipleStatements
+     |     |        |     |  |     |  `- ADeclarationStatement
+     |     |        |     |  |     |  |  `- ADeclareStatement
+     |     |        |     |  |     |  |     |- AIntvarVar
+     |     |        |     |  |     |  |     |  `- int
+     |     |        |     |  |     |  |     |- x
+     |     |        |     |  |     |  |     `- ;
+     |     |        |     |  |     |  `- ASingleStatements
+     |     |        |     |  |     `- )
+     |     |        |     |  `- ASingleStatements
+     |     |        |     `- )
+     |     |        `- ASingleStatements
+     |     `- )
+     `- ASingleProgram
+
  
 Testing Main 
-[1,7] expecting: id
+
+- AMultipleProgram
+     |- AConstIamupset
+     |  `- AConstantDeclaration
+     |     |- const
+     |     |- AFloatvarVar
+     |     |  `- float
+     |     |- pi
+     |     |- =
+     |     |- APassConstantdef
+     |     |  `- APassConstantdef2
+     |     |     `- APassConstantdef3
+     |     |        `- APassConstantdef4
+     |     |           `- APassConstantdef5
+     |     |              `- AFltConstoperand
+     |     |                 `- 3.14
+     |     `- ;
+     `- AMultipleProgram
+        |- AConstIamupset
+        |  `- AConstantDeclaration
+        |     |- const
+        |     |- AIntvarVar
+        |     |  `- int
+        |     |- r
+        |     |- =
+        |     |- APassConstantdef
+        |     |  `- APassConstantdef2
+        |     |     `- APassConstantdef3
+        |     |        `- APassConstantdef4
+        |     |           `- APassConstantdef5
+        |     |              `- AIntConstoperand
+        |     |                 `- 6
+        |     `- ;
+        `- AMultipleProgram
+           |- AFunctionsIamupset
+           |  `- ADefineFunction
+           |     |- func
+           |     |- foo
+           |     |- (
+           |     |- AMultintFuncparams
+           |     |  |- int
+           |     |  |- x
+           |     |  |- ,
+           |     |  `- AMultistrFuncparams
+           |     |     |- str
+           |     |     |- y
+           |     |     |- ,
+           |     |     `- ASinglefloatFuncparams
+           |     |        |- float
+           |     |        `- z
+           |     |- )
+           |     |- (
+           |     |- AMultipleStatements
+           |     |  `- ADeclarationStatement
+           |     |  |  `- ADeclareStatement
+           |     |  |     |- AIntvarVar
+           |     |  |     |  `- int
+           |     |  |     |- i
+           |     |  |     `- ;
+           |     |  `- ASingleStatements
+           |     `- )
+           `- AMultipleProgram
+              `- AMainIamupset
+              |  `- AMainBlock
+              |     |- main
+              |     |- (
+              |     |- AMultipleStatements
+              |     |  `- ADeclarationStatement
+              |     |  |  `- ADeclareStatement
+              |     |  |     |- AIntvarVar
+              |     |  |     |  `- int
+              |     |  |     |- z
+              |     |  |     `- ;
+              |     |  `- ASingleStatements
+              |     `- )
+              `- ASingleProgram
+
  
 Testing Procedure Calls 
-Line 5, Col20: x does not exist!
 
-- AProgram
-     `- ASingleConstdec
-     |- ASingleFuncdec
-     `- AMainBlock
-        |- main
-        |- (
-        |- AMultipleStatements
-        |  |- ACallStatement
-        |  |  `- AFunctionStatement
-        |  |     |- foo
-        |  |     |- (
-        |  |     |- ASingleParameters
-        |  |     |  `- APassExpression
-        |  |     |     `- APassExpression2
-        |  |     |        `- APassExpression3
-        |  |     |           `- APassExpression4
-        |  |     |              `- APassExpression5
-        |  |     |                 `- APassExpression6
-        |  |     |                    `- AIntOperand
-        |  |     |                       `- 1
-        |  |     |- )
-        |  |     `- ;
-        |  `- AMultipleStatements
-        |     |- ACallStatement
-        |     |  `- AFunctionStatement
-        |     |     |- foo
-        |     |     |- (
-        |     |     |- ASingleParameters
-        |     |     |  `- AAddExpression
-        |     |     |     |- APassExpression
-        |     |     |     |  `- APassExpression2
-        |     |     |     |     `- APassExpression3
-        |     |     |     |        `- APassExpression4
-        |     |     |     |           `- APassExpression5
-        |     |     |     |              `- APassExpression6
-        |     |     |     |                 `- AIntOperand
-        |     |     |     |                    `- 1
-        |     |     |     |- +
-        |     |     |     `- APassExpression2
-        |     |     |        `- APassExpression3
-        |     |     |           `- APassExpression4
-        |     |     |              `- APassExpression5
-        |     |     |                 `- APassExpression6
-        |     |     |                    `- AIntOperand
-        |     |     |                       `- 1
-        |     |     |- )
-        |     |     `- ;
-        |     `- AMultipleStatements
-        |        |- ACallStatement
-        |        |  `- AFunctionStatement
-        |        |     |- foo
-        |        |     |- (
-        |        |     |- ASingleParameters
-        |        |     |  `- APassExpression
-        |        |     |     `- APassExpression2
-        |        |     |        `- APassExpression3
-        |        |     |           `- APassExpression4
-        |        |     |              `- APassExpression5
-        |        |     |                 `- ANegativeExpression6
-        |        |     |                    |- -
-        |        |     |                    `- AIntOperand
-        |        |     |                       `- 1
-        |        |     |- )
-        |        |     `- ;
-        |        `- AMultipleStatements
-        |           `- ACallStatement
-        |           |  `- AFunctionStatement
-        |           |     |- foo
-        |           |     |- (
-        |           |     |- AMultipleParameters
-        |           |     |  |- APassExpression
-        |           |     |  |  `- APassExpression2
-        |           |     |  |     `- APassExpression3
-        |           |     |  |        `- APassExpression4
-        |           |     |  |           `- APassExpression5
-        |           |     |  |              `- APassExpression6
-        |           |     |  |                 `- AIntOperand
-        |           |     |  |                    `- 1
-        |           |     |  |- ,
-        |           |     |  `- AMultipleParameters
-        |           |     |     |- APassExpression
-        |           |     |     |  `- APassExpression2
-        |           |     |     |     `- APassExpression3
-        |           |     |     |        `- APassExpression4
-        |           |     |     |           `- APassExpression5
-        |           |     |     |              `- APassExpression6
-        |           |     |     |                 `- AIntOperand
-        |           |     |     |                    `- 2
-        |           |     |     |- ,
-        |           |     |     `- AMultipleParameters
-        |           |     |        |- APassExpression
-        |           |     |        |  `- APassExpression2
-        |           |     |        |     `- APassExpression3
-        |           |     |        |        `- APassExpression4
-        |           |     |        |           `- APassExpression5
-        |           |     |        |              `- APassExpression6
-        |           |     |        |                 `- AFltOperand
-        |           |     |        |                    `- 1.2
-        |           |     |        |- ,
-        |           |     |        `- ASingleParameters
-        |           |     |           `- APassExpression
-        |           |     |              `- APassExpression2
-        |           |     |                 `- APassExpression3
-        |           |     |                    `- APassExpression4
-        |           |     |                       `- APassExpression5
-        |           |     |                          `- APassExpression6
-        |           |     |                             `- AVariableOperand
-        |           |     |                                `- x
-        |           |     |- )
-        |           |     `- ;
-        |           `- ASingleStatements
-        `- )
+- AMultipleProgram
+     `- AMainIamupset
+     |  `- AMainBlock
+     |     |- main
+     |     |- (
+     |     |- AMultipleStatements
+     |     |  |- ACallStatement
+     |     |  |  `- AFunctionStatement
+     |     |  |     |- foo
+     |     |  |     |- (
+     |     |  |     |- ASingleParameters
+     |     |  |     |  `- APassExpression
+     |     |  |     |     `- APassExpression2
+     |     |  |     |        `- APassExpression3
+     |     |  |     |           `- APassExpression4
+     |     |  |     |              `- APassExpression5
+     |     |  |     |                 `- AIntOperand
+     |     |  |     |                    `- 1
+     |     |  |     |- )
+     |     |  |     `- ;
+     |     |  `- AMultipleStatements
+     |     |     |- ACallStatement
+     |     |     |  `- AFunctionStatement
+     |     |     |     |- foo
+     |     |     |     |- (
+     |     |     |     |- ASingleParameters
+     |     |     |     |  `- AAddExpression
+     |     |     |     |     |- APassExpression
+     |     |     |     |     |  `- APassExpression2
+     |     |     |     |     |     `- APassExpression3
+     |     |     |     |     |        `- APassExpression4
+     |     |     |     |     |           `- APassExpression5
+     |     |     |     |     |              `- AIntOperand
+     |     |     |     |     |                 `- 1
+     |     |     |     |     |- +
+     |     |     |     |     `- APassExpression2
+     |     |     |     |        `- APassExpression3
+     |     |     |     |           `- APassExpression4
+     |     |     |     |              `- APassExpression5
+     |     |     |     |                 `- AIntOperand
+     |     |     |     |                    `- 1
+     |     |     |     |- )
+     |     |     |     `- ;
+     |     |     `- AMultipleStatements
+     |     |        |- ACallStatement
+     |     |        |  `- AFunctionStatement
+     |     |        |     |- foo
+     |     |        |     |- (
+     |     |        |     |- ASingleParameters
+     |     |        |     |  `- APassExpression
+     |     |        |     |     `- APassExpression2
+     |     |        |     |        `- APassExpression3
+     |     |        |     |           `- APassExpression4
+     |     |        |     |              `- ANegativeExpression5
+     |     |        |     |                 |- -
+     |     |        |     |                 `- AIntOperand
+     |     |        |     |                    `- 1
+     |     |        |     |- )
+     |     |        |     `- ;
+     |     |        `- AMultipleStatements
+     |     |           `- ACallStatement
+     |     |           |  `- AFunctionStatement
+     |     |           |     |- foo
+     |     |           |     |- (
+     |     |           |     |- AMultipleParameters
+     |     |           |     |  |- APassExpression
+     |     |           |     |  |  `- APassExpression2
+     |     |           |     |  |     `- APassExpression3
+     |     |           |     |  |        `- APassExpression4
+     |     |           |     |  |           `- APassExpression5
+     |     |           |     |  |              `- AIntOperand
+     |     |           |     |  |                 `- 1
+     |     |           |     |  |- ,
+     |     |           |     |  `- AMultipleParameters
+     |     |           |     |     |- APassExpression
+     |     |           |     |     |  `- APassExpression2
+     |     |           |     |     |     `- APassExpression3
+     |     |           |     |     |        `- APassExpression4
+     |     |           |     |     |           `- APassExpression5
+     |     |           |     |     |              `- AIntOperand
+     |     |           |     |     |                 `- 2
+     |     |           |     |     |- ,
+     |     |           |     |     `- AMultipleParameters
+     |     |           |     |        |- APassExpression
+     |     |           |     |        |  `- APassExpression2
+     |     |           |     |        |     `- APassExpression3
+     |     |           |     |        |        `- APassExpression4
+     |     |           |     |        |           `- APassExpression5
+     |     |           |     |        |              `- AFltOperand
+     |     |           |     |        |                 `- 1.2
+     |     |           |     |        |- ,
+     |     |           |     |        `- ASingleParameters
+     |     |           |     |           `- APassExpression
+     |     |           |     |              `- APassExpression2
+     |     |           |     |                 `- APassExpression3
+     |     |           |     |                    `- APassExpression4
+     |     |           |     |                       `- APassExpression5
+     |     |           |     |                          `- AVariableOperand
+     |     |           |     |                             `- x
+     |     |           |     |- )
+     |     |           |     `- ;
+     |     |           `- ASingleStatements
+     |     `- )
+     `- ASingleProgram
 
  
 Testing Variable Declaration 
-[2,5] expecting: ')'
+
+- AMultipleProgram
+     `- AMainIamupset
+     |  `- AMainBlock
+     |     |- main
+     |     |- (
+     |     |- AMultipleStatements
+     |     |  |- ADeclarationStatement
+     |     |  |  `- ADeclareStatement
+     |     |  |     |- AIntvarVar
+     |     |  |     |  `- int
+     |     |  |     |- x
+     |     |  |     `- ;
+     |     |  `- AMultipleStatements
+     |     |     |- ADeclarationStatement
+     |     |     |  `- ADeclareStatement
+     |     |     |     |- AFloatvarVar
+     |     |     |     |  `- float
+     |     |     |     |- y
+     |     |     |     `- ;
+     |     |     `- AMultipleStatements
+     |     |        |- ADeclarationStatement
+     |     |        |  `- ADeclareStatement
+     |     |        |     |- AStrvarVar
+     |     |        |     |  `- str
+     |     |        |     |- z
+     |     |        |     `- ;
+     |     |        `- AMultipleStatements
+     |     |           |- ADeclarationStatement
+     |     |           |  `- ADeclareStatement
+     |     |           |     |- AIntvarVar
+     |     |           |     |  `- int
+     |     |           |     |- hello_world
+     |     |           |     `- ;
+     |     |           `- AMultipleStatements
+     |     |              `- ADeclarationStatement
+     |     |              |  `- ADeclareStatement
+     |     |              |     |- AFloatvarVar
+     |     |              |     |  `- float
+     |     |              |     |- hi1
+     |     |              |     `- ;
+     |     |              `- ASingleStatements
+     |     `- )
+     `- ASingleProgram
+
  
 Testing While Loops 
-[3,9] expecting: ')'
+
+- AMultipleProgram
+     `- AMainIamupset
+     |  `- AMainBlock
+     |     |- main
+     |     |- (
+     |     |- AMultipleStatements
+     |     |  |- AWhileblockStatement
+     |     |  |  `- AWhileStatement
+     |     |  |     |- while
+     |     |  |     `- (
+     |     |  |     |- ASingleConditional
+     |     |  |     |  |- ADontnegateNegation
+     |     |  |     |  `- ABooleanintComparison
+     |     |  |     |     `- 1
+     |     |  |     |- )
+     |     |  |     |- (
+     |     |  |     |- AMultipleStatements
+     |     |  |     |  `- ADeclarationStatement
+     |     |  |     |  |  `- ADeclareStatement
+     |     |  |     |  |     |- AIntvarVar
+     |     |  |     |  |     |  `- int
+     |     |  |     |  |     |- x
+     |     |  |     |  |     `- ;
+     |     |  |     |  `- ASingleStatements
+     |     |  |     `- )
+     |     |  `- AMultipleStatements
+     |     |     |- AWhileblockStatement
+     |     |     |  `- AWhileStatement
+     |     |     |     |- while
+     |     |     |     `- (
+     |     |     |     |- ASingleConditional
+     |     |     |     |  |- ADontnegateNegation
+     |     |     |     |  `- ACompareComparison
+     |     |     |     |     |- APassExpression
+     |     |     |     |     |  `- APassExpression2
+     |     |     |     |     |     `- APassExpression3
+     |     |     |     |     |        `- APassExpression4
+     |     |     |     |     |           `- APassExpression5
+     |     |     |     |     |              `- AIntOperand
+     |     |     |     |     |                 `- 1
+     |     |     |     |     |- AGreaterOperation
+     |     |     |     |     |  `- >
+     |     |     |     |     `- APassExpression
+     |     |     |     |        `- APassExpression2
+     |     |     |     |           `- APassExpression3
+     |     |     |     |              `- APassExpression4
+     |     |     |     |                 `- APassExpression5
+     |     |     |     |                    `- AIntOperand
+     |     |     |     |                       `- 2
+     |     |     |     |- )
+     |     |     |     |- (
+     |     |     |     |- AMultipleStatements
+     |     |     |     |  `- ADeclarationStatement
+     |     |     |     |  |  `- ADeclareStatement
+     |     |     |     |  |     |- AIntvarVar
+     |     |     |     |  |     |  `- int
+     |     |     |     |  |     |- x
+     |     |     |     |  |     `- ;
+     |     |     |     |  `- ASingleStatements
+     |     |     |     `- )
+     |     |     `- AMultipleStatements
+     |     |        `- AWhileblockStatement
+     |     |        |  `- AWhileStatement
+     |     |        |     |- while
+     |     |        |     `- (
+     |     |        |     |- ASingleConditional
+     |     |        |     |  |- ADontnegateNegation
+     |     |        |     |  `- ACompareComparison
+     |     |        |     |     |- APassExpression
+     |     |        |     |     |  `- APassExpression2
+     |     |        |     |     |     `- APassExpression3
+     |     |        |     |     |        `- APassExpression4
+     |     |        |     |     |           `- APassExpression5
+     |     |        |     |     |              `- AIntOperand
+     |     |        |     |     |                 `- 1
+     |     |        |     |     |- ALeqOperation
+     |     |        |     |     |  `- <=
+     |     |        |     |     `- APassExpression
+     |     |        |     |        `- APassExpression2
+     |     |        |     |           `- APassExpression3
+     |     |        |     |              `- APassExpression4
+     |     |        |     |                 `- APassExpression5
+     |     |        |     |                    `- AIntOperand
+     |     |        |     |                       `- 2
+     |     |        |     |- )
+     |     |        |     |- (
+     |     |        |     |- AMultipleStatements
+     |     |        |     |  `- AIfblockStatement
+     |     |        |     |  |  `- AIfStatement
+     |     |        |     |  |     |- if
+     |     |        |     |  |     |- (
+     |     |        |     |  |     |- ASingleConditional
+     |     |        |     |  |     |  |- ANegateNegation
+     |     |        |     |  |     |  |  `- NOT
+     |     |        |     |  |     |  `- ABooleanintComparison
+     |     |        |     |  |     |     `- 1
+     |     |        |     |  |     |- )
+     |     |        |     |  |     |- (
+     |     |        |     |  |     |- AMultipleStatements
+     |     |        |     |  |     |  `- ADeclarationStatement
+     |     |        |     |  |     |  |  `- ADeclareStatement
+     |     |        |     |  |     |  |     |- AIntvarVar
+     |     |        |     |  |     |  |     |  `- int
+     |     |        |     |  |     |  |     |- x
+     |     |        |     |  |     |  |     `- ;
+     |     |        |     |  |     |  `- ASingleStatements
+     |     |        |     |  |     `- )
+     |     |        |     |  `- ASingleStatements
+     |     |        |     `- )
+     |     |        `- ASingleStatements
+     |     `- )
+     `- ASingleProgram
+
  
 Running Incorrect Test Cases 
  
@@ -260,43 +803,43 @@ Testing Incorrect Assign and Arithmetic
  
 [3,2] expecting: ';', '+'
  
-[2,7] expecting: '=', '(', id
+[2,7] expecting: '=', '('
  
 Testing Incorrect Booleans 
-[2,15] expecting: ')', 'AND'
+[2,15] expecting: ')'
  
-[2,8] expecting: '-', '(', 'NOT', id, float, integer, string
+[2,8] expecting: '-', '(', id, float, integer
  
-[2,14] expecting: '-', '(', 'NOT', id, float, integer, string
+[2,14] expecting: '-', '(', id, float, integer
  
 Testing Incorrect Function Declarations 
-[1,10] expecting: ')'
+[1,10] expecting: 'float', 'int', 'str'
  
-[1,6] Unknown token: F
+[1,26] expecting: 'float', 'int', 'str'
  
 [1,6] expecting: id
  
 Testing Incorrect If Statements 
-[2,10] expecting: ')', 'AND'
+[2,10] expecting: '>=', '>', '<=', '<', '==', '+'
  
-[2,8] expecting: '-', '(', 'NOT', id, float, integer, string
+[2,8] expecting: '-', '(', id, float, integer
  
 Testing Incorrect Procedure Calls 
-[2,9] expecting: '-', '(', id, float, integer, string
+[2,9] expecting: '-', '(', id, float, integer
  
 [2,11] expecting: ')'
  
-[2,9] expecting: '-', '(', id, float, integer, string
+[2,9] expecting: '-', '(', id, float, integer
  
 Testing Incorrect Variable Declaration 
-[2,5] expecting: ')'
+[2,11] expecting: ';'
  
-[2,5] expecting: ')'
+[2,11] expecting: ';'
  
-[2,5] expecting: ')'
+[3,1] expecting: ';'
  
 Testing Incorrect While Loops 
-[2,13] expecting: ')', 'AND'
+[2,13] expecting: '>=', '>', '<=', '<', '==', '+'
  
-Could not find file 'C:\Users\alexsingh\Documents\CS426\cs426pex3_gillan_singh\Language\testcases\pex2\whilebad2.txt'.
+Could not find file 'C:\Users\alexsingh\Documents\PEX1 Starter Pack\PEX Starter Pack\testcases\pex2\whilebad2.txt'.
  

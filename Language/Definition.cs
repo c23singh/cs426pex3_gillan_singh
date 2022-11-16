@@ -3,7 +3,6 @@
 namespace CS426.analysis
 {
     public abstract class Definition
-
     {
         public string name;
 
@@ -12,26 +11,6 @@ namespace CS426.analysis
             return name;
         }
     }
-
-    public abstract class TypeDefinition : Definition { }
-
-    public class NumberDefinition : TypeDefinition { }
-
-    public class StringDefinition : TypeDefinition { }
-
-    public class BooleanDefinition : Definition { }
-
-    public class VariableDefinition : Definition
-    {
-        public TypeDefinition variableType;
-    }
-
-    public class FunctionDefinition : Definition
-    {
-        public List<VariableDefinition> parameters;
-    }
-    
-
 
 }
 
