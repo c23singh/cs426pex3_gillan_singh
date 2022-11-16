@@ -58,25 +58,21 @@ public interface Analysis : Switch
     void CaseAMultistrFuncparams(AMultistrFuncparams node);
     void CaseAEmptyFuncparams(AEmptyFuncparams node);
     void CaseAIfStatement(AIfStatement node);
-    void CaseASingleConditional(ASingleConditional node);
-    void CaseAMultipleandConditional(AMultipleandConditional node);
-    void CaseANegateNegation(ANegateNegation node);
-    void CaseADontnegateNegation(ADontnegateNegation node);
-    void CaseAVarBoolean(AVarBoolean node);
-    void CaseAIntBoolean(AIntBoolean node);
-    void CaseAAndConjunction(AAndConjunction node);
-    void CaseAPassConjunction(APassConjunction node);
-    void CaseAConjunction2(AConjunction2 node);
-    void CaseACompareComparison(ACompareComparison node);
-    void CaseABooleanintComparison(ABooleanintComparison node);
-    void CaseABooleanvarComparison(ABooleanvarComparison node);
-    void CaseAGreqOperation(AGreqOperation node);
-    void CaseAGreaterOperation(AGreaterOperation node);
-    void CaseALeqOperation(ALeqOperation node);
-    void CaseALessOperation(ALessOperation node);
-    void CaseAEquivalenceOperation(AEquivalenceOperation node);
     void CaseAWhileStatement(AWhileStatement node);
     void CaseAMainBlock(AMainBlock node);
+    void CaseAGreqEquality(AGreqEquality node);
+    void CaseAGreaterEquality(AGreaterEquality node);
+    void CaseALeqEquality(ALeqEquality node);
+    void CaseALessEquality(ALessEquality node);
+    void CaseAEquivalenceEquality(AEquivalenceEquality node);
+    void CaseAAndLogical(AAndLogical node);
+    void CaseAPassLogical(APassLogical node);
+    void CaseAOrLogical2(AOrLogical2 node);
+    void CaseAPassLogical2(APassLogical2 node);
+    void CaseANotLogical3(ANotLogical3 node);
+    void CaseAPassLogical3(APassLogical3 node);
+    void CaseACompareComparison(ACompareComparison node);
+    void CaseANocompareComparison(ANocompareComparison node);
 
     void CaseTEol(TEol node);
     void CaseTGreatereq(TGreatereq node);
@@ -95,16 +91,16 @@ public interface Analysis : Switch
     void CaseTOrl(TOrl node);
     void CaseTNotl(TNotl node);
     void CaseTComma(TComma node);
+    void CaseTKeymain(TKeymain node);
+    void CaseTKeyfunc(TKeyfunc node);
+    void CaseTId(TId node);
     void CaseTKeyfloat(TKeyfloat node);
     void CaseTKeyint(TKeyint node);
     void CaseTKeyif(TKeyif node);
     void CaseTKeyelse(TKeyelse node);
     void CaseTKeyconst(TKeyconst node);
     void CaseTKeystr(TKeystr node);
-    void CaseTKeyfunc(TKeyfunc node);
     void CaseTKeywhile(TKeywhile node);
-    void CaseTKeymain(TKeymain node);
-    void CaseTId(TId node);
     void CaseTComment(TComment node);
     void CaseTFloat(TFloat node);
     void CaseTInteger(TInteger node);
@@ -348,39 +344,55 @@ public class AnalysisAdapter : Analysis
     {
         DefaultCase(node);
     }
-    public virtual void CaseASingleConditional(ASingleConditional node)
+    public virtual void CaseAWhileStatement(AWhileStatement node)
     {
         DefaultCase(node);
     }
-    public virtual void CaseAMultipleandConditional(AMultipleandConditional node)
+    public virtual void CaseAMainBlock(AMainBlock node)
     {
         DefaultCase(node);
     }
-    public virtual void CaseANegateNegation(ANegateNegation node)
+    public virtual void CaseAGreqEquality(AGreqEquality node)
     {
         DefaultCase(node);
     }
-    public virtual void CaseADontnegateNegation(ADontnegateNegation node)
+    public virtual void CaseAGreaterEquality(AGreaterEquality node)
     {
         DefaultCase(node);
     }
-    public virtual void CaseAVarBoolean(AVarBoolean node)
+    public virtual void CaseALeqEquality(ALeqEquality node)
     {
         DefaultCase(node);
     }
-    public virtual void CaseAIntBoolean(AIntBoolean node)
+    public virtual void CaseALessEquality(ALessEquality node)
     {
         DefaultCase(node);
     }
-    public virtual void CaseAAndConjunction(AAndConjunction node)
+    public virtual void CaseAEquivalenceEquality(AEquivalenceEquality node)
     {
         DefaultCase(node);
     }
-    public virtual void CaseAPassConjunction(APassConjunction node)
+    public virtual void CaseAAndLogical(AAndLogical node)
     {
         DefaultCase(node);
     }
-    public virtual void CaseAConjunction2(AConjunction2 node)
+    public virtual void CaseAPassLogical(APassLogical node)
+    {
+        DefaultCase(node);
+    }
+    public virtual void CaseAOrLogical2(AOrLogical2 node)
+    {
+        DefaultCase(node);
+    }
+    public virtual void CaseAPassLogical2(APassLogical2 node)
+    {
+        DefaultCase(node);
+    }
+    public virtual void CaseANotLogical3(ANotLogical3 node)
+    {
+        DefaultCase(node);
+    }
+    public virtual void CaseAPassLogical3(APassLogical3 node)
     {
         DefaultCase(node);
     }
@@ -388,39 +400,7 @@ public class AnalysisAdapter : Analysis
     {
         DefaultCase(node);
     }
-    public virtual void CaseABooleanintComparison(ABooleanintComparison node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseABooleanvarComparison(ABooleanvarComparison node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAGreqOperation(AGreqOperation node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAGreaterOperation(AGreaterOperation node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseALeqOperation(ALeqOperation node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseALessOperation(ALessOperation node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAEquivalenceOperation(AEquivalenceOperation node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAWhileStatement(AWhileStatement node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAMainBlock(AMainBlock node)
+    public virtual void CaseANocompareComparison(ANocompareComparison node)
     {
         DefaultCase(node);
     }
@@ -493,6 +473,18 @@ public class AnalysisAdapter : Analysis
     {
         DefaultCase(node);
     }
+    public virtual void CaseTKeymain(TKeymain node)
+    {
+        DefaultCase(node);
+    }
+    public virtual void CaseTKeyfunc(TKeyfunc node)
+    {
+        DefaultCase(node);
+    }
+    public virtual void CaseTId(TId node)
+    {
+        DefaultCase(node);
+    }
     public virtual void CaseTKeyfloat(TKeyfloat node)
     {
         DefaultCase(node);
@@ -517,19 +509,7 @@ public class AnalysisAdapter : Analysis
     {
         DefaultCase(node);
     }
-    public virtual void CaseTKeyfunc(TKeyfunc node)
-    {
-        DefaultCase(node);
-    }
     public virtual void CaseTKeywhile(TKeywhile node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseTKeymain(TKeymain node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseTId(TId node)
     {
         DefaultCase(node);
     }
@@ -1588,9 +1568,9 @@ public class DepthFirstAdapter : AnalysisAdapter
         {
             node.GetHeadero().Apply(this);
         }
-        if(node.GetConditional() != null)
+        if(node.GetLogical() != null)
         {
-            node.GetConditional().Apply(this);
+            node.GetLogical().Apply(this);
         }
         if(node.GetHeaderc() != null)
         {
@@ -1609,349 +1589,6 @@ public class DepthFirstAdapter : AnalysisAdapter
             node.GetBodyc().Apply(this);
         }
         OutAIfStatement(node);
-    }
-    public virtual void InASingleConditional(ASingleConditional node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutASingleConditional(ASingleConditional node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseASingleConditional(ASingleConditional node)
-    {
-        InASingleConditional(node);
-        if(node.GetNegation() != null)
-        {
-            node.GetNegation().Apply(this);
-        }
-        if(node.GetComparison() != null)
-        {
-            node.GetComparison().Apply(this);
-        }
-        OutASingleConditional(node);
-    }
-    public virtual void InAMultipleandConditional(AMultipleandConditional node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAMultipleandConditional(AMultipleandConditional node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAMultipleandConditional(AMultipleandConditional node)
-    {
-        InAMultipleandConditional(node);
-        if(node.GetNegation() != null)
-        {
-            node.GetNegation().Apply(this);
-        }
-        if(node.GetComparison() != null)
-        {
-            node.GetComparison().Apply(this);
-        }
-        if(node.GetConjunction() != null)
-        {
-            node.GetConjunction().Apply(this);
-        }
-        if(node.GetConditional() != null)
-        {
-            node.GetConditional().Apply(this);
-        }
-        OutAMultipleandConditional(node);
-    }
-    public virtual void InANegateNegation(ANegateNegation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutANegateNegation(ANegateNegation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseANegateNegation(ANegateNegation node)
-    {
-        InANegateNegation(node);
-        if(node.GetNotl() != null)
-        {
-            node.GetNotl().Apply(this);
-        }
-        OutANegateNegation(node);
-    }
-    public virtual void InADontnegateNegation(ADontnegateNegation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutADontnegateNegation(ADontnegateNegation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseADontnegateNegation(ADontnegateNegation node)
-    {
-        InADontnegateNegation(node);
-        OutADontnegateNegation(node);
-    }
-    public virtual void InAVarBoolean(AVarBoolean node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAVarBoolean(AVarBoolean node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAVarBoolean(AVarBoolean node)
-    {
-        InAVarBoolean(node);
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        OutAVarBoolean(node);
-    }
-    public virtual void InAIntBoolean(AIntBoolean node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAIntBoolean(AIntBoolean node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAIntBoolean(AIntBoolean node)
-    {
-        InAIntBoolean(node);
-        if(node.GetInteger() != null)
-        {
-            node.GetInteger().Apply(this);
-        }
-        OutAIntBoolean(node);
-    }
-    public virtual void InAAndConjunction(AAndConjunction node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAAndConjunction(AAndConjunction node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAAndConjunction(AAndConjunction node)
-    {
-        InAAndConjunction(node);
-        if(node.GetAndl() != null)
-        {
-            node.GetAndl().Apply(this);
-        }
-        OutAAndConjunction(node);
-    }
-    public virtual void InAPassConjunction(APassConjunction node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAPassConjunction(APassConjunction node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAPassConjunction(APassConjunction node)
-    {
-        InAPassConjunction(node);
-        if(node.GetConjunction2() != null)
-        {
-            node.GetConjunction2().Apply(this);
-        }
-        OutAPassConjunction(node);
-    }
-    public virtual void InAConjunction2(AConjunction2 node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAConjunction2(AConjunction2 node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAConjunction2(AConjunction2 node)
-    {
-        InAConjunction2(node);
-        if(node.GetOrl() != null)
-        {
-            node.GetOrl().Apply(this);
-        }
-        OutAConjunction2(node);
-    }
-    public virtual void InACompareComparison(ACompareComparison node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutACompareComparison(ACompareComparison node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseACompareComparison(ACompareComparison node)
-    {
-        InACompareComparison(node);
-        if(node.GetLeftside() != null)
-        {
-            node.GetLeftside().Apply(this);
-        }
-        if(node.GetOperation() != null)
-        {
-            node.GetOperation().Apply(this);
-        }
-        if(node.GetRightside() != null)
-        {
-            node.GetRightside().Apply(this);
-        }
-        OutACompareComparison(node);
-    }
-    public virtual void InABooleanintComparison(ABooleanintComparison node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutABooleanintComparison(ABooleanintComparison node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseABooleanintComparison(ABooleanintComparison node)
-    {
-        InABooleanintComparison(node);
-        if(node.GetInteger() != null)
-        {
-            node.GetInteger().Apply(this);
-        }
-        OutABooleanintComparison(node);
-    }
-    public virtual void InABooleanvarComparison(ABooleanvarComparison node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutABooleanvarComparison(ABooleanvarComparison node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseABooleanvarComparison(ABooleanvarComparison node)
-    {
-        InABooleanvarComparison(node);
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        OutABooleanvarComparison(node);
-    }
-    public virtual void InAGreqOperation(AGreqOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAGreqOperation(AGreqOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAGreqOperation(AGreqOperation node)
-    {
-        InAGreqOperation(node);
-        if(node.GetGreatereq() != null)
-        {
-            node.GetGreatereq().Apply(this);
-        }
-        OutAGreqOperation(node);
-    }
-    public virtual void InAGreaterOperation(AGreaterOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAGreaterOperation(AGreaterOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAGreaterOperation(AGreaterOperation node)
-    {
-        InAGreaterOperation(node);
-        if(node.GetGreater() != null)
-        {
-            node.GetGreater().Apply(this);
-        }
-        OutAGreaterOperation(node);
-    }
-    public virtual void InALeqOperation(ALeqOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutALeqOperation(ALeqOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseALeqOperation(ALeqOperation node)
-    {
-        InALeqOperation(node);
-        if(node.GetLesseq() != null)
-        {
-            node.GetLesseq().Apply(this);
-        }
-        OutALeqOperation(node);
-    }
-    public virtual void InALessOperation(ALessOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutALessOperation(ALessOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseALessOperation(ALessOperation node)
-    {
-        InALessOperation(node);
-        if(node.GetLess() != null)
-        {
-            node.GetLess().Apply(this);
-        }
-        OutALessOperation(node);
-    }
-    public virtual void InAEquivalenceOperation(AEquivalenceOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAEquivalenceOperation(AEquivalenceOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAEquivalenceOperation(AEquivalenceOperation node)
-    {
-        InAEquivalenceOperation(node);
-        if(node.GetEquiv() != null)
-        {
-            node.GetEquiv().Apply(this);
-        }
-        OutAEquivalenceOperation(node);
     }
     public virtual void InAWhileStatement(AWhileStatement node)
     {
@@ -1974,9 +1611,9 @@ public class DepthFirstAdapter : AnalysisAdapter
         {
             node.GetHeadero().Apply(this);
         }
-        if(node.GetConditional() != null)
+        if(node.GetLogical() != null)
         {
-            node.GetConditional().Apply(this);
+            node.GetLogical().Apply(this);
         }
         if(node.GetHeaderc() != null)
         {
@@ -2026,6 +1663,281 @@ public class DepthFirstAdapter : AnalysisAdapter
             node.GetClosep().Apply(this);
         }
         OutAMainBlock(node);
+    }
+    public virtual void InAGreqEquality(AGreqEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAGreqEquality(AGreqEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAGreqEquality(AGreqEquality node)
+    {
+        InAGreqEquality(node);
+        if(node.GetGreatereq() != null)
+        {
+            node.GetGreatereq().Apply(this);
+        }
+        OutAGreqEquality(node);
+    }
+    public virtual void InAGreaterEquality(AGreaterEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAGreaterEquality(AGreaterEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAGreaterEquality(AGreaterEquality node)
+    {
+        InAGreaterEquality(node);
+        if(node.GetGreater() != null)
+        {
+            node.GetGreater().Apply(this);
+        }
+        OutAGreaterEquality(node);
+    }
+    public virtual void InALeqEquality(ALeqEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutALeqEquality(ALeqEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseALeqEquality(ALeqEquality node)
+    {
+        InALeqEquality(node);
+        if(node.GetLesseq() != null)
+        {
+            node.GetLesseq().Apply(this);
+        }
+        OutALeqEquality(node);
+    }
+    public virtual void InALessEquality(ALessEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutALessEquality(ALessEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseALessEquality(ALessEquality node)
+    {
+        InALessEquality(node);
+        if(node.GetLess() != null)
+        {
+            node.GetLess().Apply(this);
+        }
+        OutALessEquality(node);
+    }
+    public virtual void InAEquivalenceEquality(AEquivalenceEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAEquivalenceEquality(AEquivalenceEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAEquivalenceEquality(AEquivalenceEquality node)
+    {
+        InAEquivalenceEquality(node);
+        if(node.GetEquiv() != null)
+        {
+            node.GetEquiv().Apply(this);
+        }
+        OutAEquivalenceEquality(node);
+    }
+    public virtual void InAAndLogical(AAndLogical node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAAndLogical(AAndLogical node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAAndLogical(AAndLogical node)
+    {
+        InAAndLogical(node);
+        if(node.GetLogical() != null)
+        {
+            node.GetLogical().Apply(this);
+        }
+        if(node.GetAndl() != null)
+        {
+            node.GetAndl().Apply(this);
+        }
+        if(node.GetLogical2() != null)
+        {
+            node.GetLogical2().Apply(this);
+        }
+        OutAAndLogical(node);
+    }
+    public virtual void InAPassLogical(APassLogical node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAPassLogical(APassLogical node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAPassLogical(APassLogical node)
+    {
+        InAPassLogical(node);
+        if(node.GetLogical2() != null)
+        {
+            node.GetLogical2().Apply(this);
+        }
+        OutAPassLogical(node);
+    }
+    public virtual void InAOrLogical2(AOrLogical2 node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAOrLogical2(AOrLogical2 node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAOrLogical2(AOrLogical2 node)
+    {
+        InAOrLogical2(node);
+        if(node.GetLogical2() != null)
+        {
+            node.GetLogical2().Apply(this);
+        }
+        if(node.GetOrl() != null)
+        {
+            node.GetOrl().Apply(this);
+        }
+        if(node.GetLogical3() != null)
+        {
+            node.GetLogical3().Apply(this);
+        }
+        OutAOrLogical2(node);
+    }
+    public virtual void InAPassLogical2(APassLogical2 node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAPassLogical2(APassLogical2 node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAPassLogical2(APassLogical2 node)
+    {
+        InAPassLogical2(node);
+        if(node.GetLogical3() != null)
+        {
+            node.GetLogical3().Apply(this);
+        }
+        OutAPassLogical2(node);
+    }
+    public virtual void InANotLogical3(ANotLogical3 node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutANotLogical3(ANotLogical3 node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseANotLogical3(ANotLogical3 node)
+    {
+        InANotLogical3(node);
+        if(node.GetNotl() != null)
+        {
+            node.GetNotl().Apply(this);
+        }
+        if(node.GetComparison() != null)
+        {
+            node.GetComparison().Apply(this);
+        }
+        OutANotLogical3(node);
+    }
+    public virtual void InAPassLogical3(APassLogical3 node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAPassLogical3(APassLogical3 node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAPassLogical3(APassLogical3 node)
+    {
+        InAPassLogical3(node);
+        if(node.GetComparison() != null)
+        {
+            node.GetComparison().Apply(this);
+        }
+        OutAPassLogical3(node);
+    }
+    public virtual void InACompareComparison(ACompareComparison node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutACompareComparison(ACompareComparison node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseACompareComparison(ACompareComparison node)
+    {
+        InACompareComparison(node);
+        if(node.GetLeft() != null)
+        {
+            node.GetLeft().Apply(this);
+        }
+        if(node.GetEquality() != null)
+        {
+            node.GetEquality().Apply(this);
+        }
+        if(node.GetRight() != null)
+        {
+            node.GetRight().Apply(this);
+        }
+        OutACompareComparison(node);
+    }
+    public virtual void InANocompareComparison(ANocompareComparison node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutANocompareComparison(ANocompareComparison node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseANocompareComparison(ANocompareComparison node)
+    {
+        InANocompareComparison(node);
+        if(node.GetExpression() != null)
+        {
+            node.GetExpression().Apply(this);
+        }
+        OutANocompareComparison(node);
     }
 }
 
@@ -3061,9 +2973,9 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
         {
             node.GetHeaderc().Apply(this);
         }
-        if(node.GetConditional() != null)
+        if(node.GetLogical() != null)
         {
-            node.GetConditional().Apply(this);
+            node.GetLogical().Apply(this);
         }
         if(node.GetHeadero() != null)
         {
@@ -3074,349 +2986,6 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
             node.GetKeyif().Apply(this);
         }
         OutAIfStatement(node);
-    }
-    public virtual void InASingleConditional(ASingleConditional node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutASingleConditional(ASingleConditional node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseASingleConditional(ASingleConditional node)
-    {
-        InASingleConditional(node);
-        if(node.GetComparison() != null)
-        {
-            node.GetComparison().Apply(this);
-        }
-        if(node.GetNegation() != null)
-        {
-            node.GetNegation().Apply(this);
-        }
-        OutASingleConditional(node);
-    }
-    public virtual void InAMultipleandConditional(AMultipleandConditional node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAMultipleandConditional(AMultipleandConditional node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAMultipleandConditional(AMultipleandConditional node)
-    {
-        InAMultipleandConditional(node);
-        if(node.GetConditional() != null)
-        {
-            node.GetConditional().Apply(this);
-        }
-        if(node.GetConjunction() != null)
-        {
-            node.GetConjunction().Apply(this);
-        }
-        if(node.GetComparison() != null)
-        {
-            node.GetComparison().Apply(this);
-        }
-        if(node.GetNegation() != null)
-        {
-            node.GetNegation().Apply(this);
-        }
-        OutAMultipleandConditional(node);
-    }
-    public virtual void InANegateNegation(ANegateNegation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutANegateNegation(ANegateNegation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseANegateNegation(ANegateNegation node)
-    {
-        InANegateNegation(node);
-        if(node.GetNotl() != null)
-        {
-            node.GetNotl().Apply(this);
-        }
-        OutANegateNegation(node);
-    }
-    public virtual void InADontnegateNegation(ADontnegateNegation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutADontnegateNegation(ADontnegateNegation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseADontnegateNegation(ADontnegateNegation node)
-    {
-        InADontnegateNegation(node);
-        OutADontnegateNegation(node);
-    }
-    public virtual void InAVarBoolean(AVarBoolean node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAVarBoolean(AVarBoolean node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAVarBoolean(AVarBoolean node)
-    {
-        InAVarBoolean(node);
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        OutAVarBoolean(node);
-    }
-    public virtual void InAIntBoolean(AIntBoolean node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAIntBoolean(AIntBoolean node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAIntBoolean(AIntBoolean node)
-    {
-        InAIntBoolean(node);
-        if(node.GetInteger() != null)
-        {
-            node.GetInteger().Apply(this);
-        }
-        OutAIntBoolean(node);
-    }
-    public virtual void InAAndConjunction(AAndConjunction node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAAndConjunction(AAndConjunction node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAAndConjunction(AAndConjunction node)
-    {
-        InAAndConjunction(node);
-        if(node.GetAndl() != null)
-        {
-            node.GetAndl().Apply(this);
-        }
-        OutAAndConjunction(node);
-    }
-    public virtual void InAPassConjunction(APassConjunction node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAPassConjunction(APassConjunction node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAPassConjunction(APassConjunction node)
-    {
-        InAPassConjunction(node);
-        if(node.GetConjunction2() != null)
-        {
-            node.GetConjunction2().Apply(this);
-        }
-        OutAPassConjunction(node);
-    }
-    public virtual void InAConjunction2(AConjunction2 node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAConjunction2(AConjunction2 node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAConjunction2(AConjunction2 node)
-    {
-        InAConjunction2(node);
-        if(node.GetOrl() != null)
-        {
-            node.GetOrl().Apply(this);
-        }
-        OutAConjunction2(node);
-    }
-    public virtual void InACompareComparison(ACompareComparison node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutACompareComparison(ACompareComparison node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseACompareComparison(ACompareComparison node)
-    {
-        InACompareComparison(node);
-        if(node.GetRightside() != null)
-        {
-            node.GetRightside().Apply(this);
-        }
-        if(node.GetOperation() != null)
-        {
-            node.GetOperation().Apply(this);
-        }
-        if(node.GetLeftside() != null)
-        {
-            node.GetLeftside().Apply(this);
-        }
-        OutACompareComparison(node);
-    }
-    public virtual void InABooleanintComparison(ABooleanintComparison node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutABooleanintComparison(ABooleanintComparison node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseABooleanintComparison(ABooleanintComparison node)
-    {
-        InABooleanintComparison(node);
-        if(node.GetInteger() != null)
-        {
-            node.GetInteger().Apply(this);
-        }
-        OutABooleanintComparison(node);
-    }
-    public virtual void InABooleanvarComparison(ABooleanvarComparison node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutABooleanvarComparison(ABooleanvarComparison node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseABooleanvarComparison(ABooleanvarComparison node)
-    {
-        InABooleanvarComparison(node);
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        OutABooleanvarComparison(node);
-    }
-    public virtual void InAGreqOperation(AGreqOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAGreqOperation(AGreqOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAGreqOperation(AGreqOperation node)
-    {
-        InAGreqOperation(node);
-        if(node.GetGreatereq() != null)
-        {
-            node.GetGreatereq().Apply(this);
-        }
-        OutAGreqOperation(node);
-    }
-    public virtual void InAGreaterOperation(AGreaterOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAGreaterOperation(AGreaterOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAGreaterOperation(AGreaterOperation node)
-    {
-        InAGreaterOperation(node);
-        if(node.GetGreater() != null)
-        {
-            node.GetGreater().Apply(this);
-        }
-        OutAGreaterOperation(node);
-    }
-    public virtual void InALeqOperation(ALeqOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutALeqOperation(ALeqOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseALeqOperation(ALeqOperation node)
-    {
-        InALeqOperation(node);
-        if(node.GetLesseq() != null)
-        {
-            node.GetLesseq().Apply(this);
-        }
-        OutALeqOperation(node);
-    }
-    public virtual void InALessOperation(ALessOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutALessOperation(ALessOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseALessOperation(ALessOperation node)
-    {
-        InALessOperation(node);
-        if(node.GetLess() != null)
-        {
-            node.GetLess().Apply(this);
-        }
-        OutALessOperation(node);
-    }
-    public virtual void InAEquivalenceOperation(AEquivalenceOperation node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAEquivalenceOperation(AEquivalenceOperation node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAEquivalenceOperation(AEquivalenceOperation node)
-    {
-        InAEquivalenceOperation(node);
-        if(node.GetEquiv() != null)
-        {
-            node.GetEquiv().Apply(this);
-        }
-        OutAEquivalenceOperation(node);
     }
     public virtual void InAWhileStatement(AWhileStatement node)
     {
@@ -3447,9 +3016,9 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
         {
             node.GetHeaderc().Apply(this);
         }
-        if(node.GetConditional() != null)
+        if(node.GetLogical() != null)
         {
-            node.GetConditional().Apply(this);
+            node.GetLogical().Apply(this);
         }
         if(node.GetHeadero() != null)
         {
@@ -3491,6 +3060,281 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
             node.GetKeymain().Apply(this);
         }
         OutAMainBlock(node);
+    }
+    public virtual void InAGreqEquality(AGreqEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAGreqEquality(AGreqEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAGreqEquality(AGreqEquality node)
+    {
+        InAGreqEquality(node);
+        if(node.GetGreatereq() != null)
+        {
+            node.GetGreatereq().Apply(this);
+        }
+        OutAGreqEquality(node);
+    }
+    public virtual void InAGreaterEquality(AGreaterEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAGreaterEquality(AGreaterEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAGreaterEquality(AGreaterEquality node)
+    {
+        InAGreaterEquality(node);
+        if(node.GetGreater() != null)
+        {
+            node.GetGreater().Apply(this);
+        }
+        OutAGreaterEquality(node);
+    }
+    public virtual void InALeqEquality(ALeqEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutALeqEquality(ALeqEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseALeqEquality(ALeqEquality node)
+    {
+        InALeqEquality(node);
+        if(node.GetLesseq() != null)
+        {
+            node.GetLesseq().Apply(this);
+        }
+        OutALeqEquality(node);
+    }
+    public virtual void InALessEquality(ALessEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutALessEquality(ALessEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseALessEquality(ALessEquality node)
+    {
+        InALessEquality(node);
+        if(node.GetLess() != null)
+        {
+            node.GetLess().Apply(this);
+        }
+        OutALessEquality(node);
+    }
+    public virtual void InAEquivalenceEquality(AEquivalenceEquality node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAEquivalenceEquality(AEquivalenceEquality node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAEquivalenceEquality(AEquivalenceEquality node)
+    {
+        InAEquivalenceEquality(node);
+        if(node.GetEquiv() != null)
+        {
+            node.GetEquiv().Apply(this);
+        }
+        OutAEquivalenceEquality(node);
+    }
+    public virtual void InAAndLogical(AAndLogical node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAAndLogical(AAndLogical node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAAndLogical(AAndLogical node)
+    {
+        InAAndLogical(node);
+        if(node.GetLogical2() != null)
+        {
+            node.GetLogical2().Apply(this);
+        }
+        if(node.GetAndl() != null)
+        {
+            node.GetAndl().Apply(this);
+        }
+        if(node.GetLogical() != null)
+        {
+            node.GetLogical().Apply(this);
+        }
+        OutAAndLogical(node);
+    }
+    public virtual void InAPassLogical(APassLogical node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAPassLogical(APassLogical node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAPassLogical(APassLogical node)
+    {
+        InAPassLogical(node);
+        if(node.GetLogical2() != null)
+        {
+            node.GetLogical2().Apply(this);
+        }
+        OutAPassLogical(node);
+    }
+    public virtual void InAOrLogical2(AOrLogical2 node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAOrLogical2(AOrLogical2 node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAOrLogical2(AOrLogical2 node)
+    {
+        InAOrLogical2(node);
+        if(node.GetLogical3() != null)
+        {
+            node.GetLogical3().Apply(this);
+        }
+        if(node.GetOrl() != null)
+        {
+            node.GetOrl().Apply(this);
+        }
+        if(node.GetLogical2() != null)
+        {
+            node.GetLogical2().Apply(this);
+        }
+        OutAOrLogical2(node);
+    }
+    public virtual void InAPassLogical2(APassLogical2 node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAPassLogical2(APassLogical2 node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAPassLogical2(APassLogical2 node)
+    {
+        InAPassLogical2(node);
+        if(node.GetLogical3() != null)
+        {
+            node.GetLogical3().Apply(this);
+        }
+        OutAPassLogical2(node);
+    }
+    public virtual void InANotLogical3(ANotLogical3 node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutANotLogical3(ANotLogical3 node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseANotLogical3(ANotLogical3 node)
+    {
+        InANotLogical3(node);
+        if(node.GetComparison() != null)
+        {
+            node.GetComparison().Apply(this);
+        }
+        if(node.GetNotl() != null)
+        {
+            node.GetNotl().Apply(this);
+        }
+        OutANotLogical3(node);
+    }
+    public virtual void InAPassLogical3(APassLogical3 node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutAPassLogical3(APassLogical3 node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseAPassLogical3(APassLogical3 node)
+    {
+        InAPassLogical3(node);
+        if(node.GetComparison() != null)
+        {
+            node.GetComparison().Apply(this);
+        }
+        OutAPassLogical3(node);
+    }
+    public virtual void InACompareComparison(ACompareComparison node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutACompareComparison(ACompareComparison node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseACompareComparison(ACompareComparison node)
+    {
+        InACompareComparison(node);
+        if(node.GetRight() != null)
+        {
+            node.GetRight().Apply(this);
+        }
+        if(node.GetEquality() != null)
+        {
+            node.GetEquality().Apply(this);
+        }
+        if(node.GetLeft() != null)
+        {
+            node.GetLeft().Apply(this);
+        }
+        OutACompareComparison(node);
+    }
+    public virtual void InANocompareComparison(ANocompareComparison node)
+    {
+        DefaultIn(node);
+    }
+
+    public virtual void OutANocompareComparison(ANocompareComparison node)
+    {
+        DefaultOut(node);
+    }
+
+    public override void CaseANocompareComparison(ANocompareComparison node)
+    {
+        InANocompareComparison(node);
+        if(node.GetExpression() != null)
+        {
+            node.GetExpression().Apply(this);
+        }
+        OutANocompareComparison(node);
     }
 }
 } // namespace CS426.analysis

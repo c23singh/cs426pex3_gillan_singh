@@ -434,6 +434,81 @@ public sealed class TComma : Token
     }
 }
 
+public sealed class TKeymain : Token
+{
+    public TKeymain(string text)
+    {
+        Text = text;
+    }
+
+    public TKeymain(string text, int line, int pos)
+    {
+        Text = text;
+        Line = line;
+        Pos = pos;
+    }
+
+    public override Object Clone()
+    {
+      return new TKeymain(Text, Line, Pos);
+    }
+
+    public override void Apply(Switch sw)
+    {
+        ((Analysis) sw).CaseTKeymain(this);
+    }
+}
+
+public sealed class TKeyfunc : Token
+{
+    public TKeyfunc(string text)
+    {
+        Text = text;
+    }
+
+    public TKeyfunc(string text, int line, int pos)
+    {
+        Text = text;
+        Line = line;
+        Pos = pos;
+    }
+
+    public override Object Clone()
+    {
+      return new TKeyfunc(Text, Line, Pos);
+    }
+
+    public override void Apply(Switch sw)
+    {
+        ((Analysis) sw).CaseTKeyfunc(this);
+    }
+}
+
+public sealed class TId : Token
+{
+    public TId(string text)
+    {
+        Text = text;
+    }
+
+    public TId(string text, int line, int pos)
+    {
+        Text = text;
+        Line = line;
+        Pos = pos;
+    }
+
+    public override Object Clone()
+    {
+      return new TId(Text, Line, Pos);
+    }
+
+    public override void Apply(Switch sw)
+    {
+        ((Analysis) sw).CaseTId(this);
+    }
+}
+
 public sealed class TKeyfloat : Token
 {
     public TKeyfloat(string text)
@@ -584,31 +659,6 @@ public sealed class TKeystr : Token
     }
 }
 
-public sealed class TKeyfunc : Token
-{
-    public TKeyfunc(string text)
-    {
-        Text = text;
-    }
-
-    public TKeyfunc(string text, int line, int pos)
-    {
-        Text = text;
-        Line = line;
-        Pos = pos;
-    }
-
-    public override Object Clone()
-    {
-      return new TKeyfunc(Text, Line, Pos);
-    }
-
-    public override void Apply(Switch sw)
-    {
-        ((Analysis) sw).CaseTKeyfunc(this);
-    }
-}
-
 public sealed class TKeywhile : Token
 {
     public TKeywhile(string text)
@@ -631,56 +681,6 @@ public sealed class TKeywhile : Token
     public override void Apply(Switch sw)
     {
         ((Analysis) sw).CaseTKeywhile(this);
-    }
-}
-
-public sealed class TKeymain : Token
-{
-    public TKeymain(string text)
-    {
-        Text = text;
-    }
-
-    public TKeymain(string text, int line, int pos)
-    {
-        Text = text;
-        Line = line;
-        Pos = pos;
-    }
-
-    public override Object Clone()
-    {
-      return new TKeymain(Text, Line, Pos);
-    }
-
-    public override void Apply(Switch sw)
-    {
-        ((Analysis) sw).CaseTKeymain(this);
-    }
-}
-
-public sealed class TId : Token
-{
-    public TId(string text)
-    {
-        Text = text;
-    }
-
-    public TId(string text, int line, int pos)
-    {
-        Text = text;
-        Line = line;
-        Pos = pos;
-    }
-
-    public override Object Clone()
-    {
-      return new TId(Text, Line, Pos);
-    }
-
-    public override void Apply(Switch sw)
-    {
-        ((Analysis) sw).CaseTId(this);
     }
 }
 
