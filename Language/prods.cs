@@ -32,6 +32,10 @@ public abstract class PDeclareStatement : Node
 {
 }
 
+public abstract class PVar : Node
+{
+}
+
 public abstract class PConstantDeclaration : Node
 {
 }
@@ -1124,8 +1128,8 @@ public sealed class AWhileblockStatement : PStatement
 }
 public sealed class ADeclareStatement : PDeclareStatement
 {
-    private TId _type_;
-    private TId _varname_;
+    private PVar _var_;
+    private TId _id_;
     private TEol _eol_;
 
     public ADeclareStatement ()
@@ -1133,21 +1137,21 @@ public sealed class ADeclareStatement : PDeclareStatement
     }
 
     public ADeclareStatement (
-            TId _type_,
-            TId _varname_,
+            PVar _var_,
+            TId _id_,
             TEol _eol_
     )
     {
-        SetType (_type_);
-        SetVarname (_varname_);
+        SetVar (_var_);
+        SetId (_id_);
         SetEol (_eol_);
     }
 
     public override Object Clone()
     {
         return new ADeclareStatement (
-            (TId)CloneNode (_type_),
-            (TId)CloneNode (_varname_),
+            (PVar)CloneNode (_var_),
+            (TId)CloneNode (_id_),
             (TEol)CloneNode (_eol_)
         );
     }
@@ -1157,16 +1161,16 @@ public sealed class ADeclareStatement : PDeclareStatement
         ((Analysis) sw).CaseADeclareStatement(this);
     }
 
-    public TId GetType ()
+    public PVar GetVar ()
     {
-        return _type_;
+        return _var_;
     }
 
-    public void SetType (TId node)
+    public void SetVar (PVar node)
     {
-        if(_type_ != null)
+        if(_var_ != null)
         {
-            _type_.Parent(null);
+            _var_.Parent(null);
         }
 
         if(node != null)
@@ -1179,18 +1183,18 @@ public sealed class ADeclareStatement : PDeclareStatement
             node.Parent(this);
         }
 
-        _type_ = node;
+        _var_ = node;
     }
-    public TId GetVarname ()
+    public TId GetId ()
     {
-        return _varname_;
+        return _id_;
     }
 
-    public void SetVarname (TId node)
+    public void SetId (TId node)
     {
-        if(_varname_ != null)
+        if(_id_ != null)
         {
-            _varname_.Parent(null);
+            _id_.Parent(null);
         }
 
         if(node != null)
@@ -1203,7 +1207,7 @@ public sealed class ADeclareStatement : PDeclareStatement
             node.Parent(this);
         }
 
-        _varname_ = node;
+        _id_ = node;
     }
     public TEol GetEol ()
     {
@@ -1233,22 +1237,22 @@ public sealed class ADeclareStatement : PDeclareStatement
     public override string ToString()
     {
         return ""
-            + ToString (_type_)
-            + ToString (_varname_)
+            + ToString (_var_)
+            + ToString (_id_)
             + ToString (_eol_)
         ;
     }
 
     internal override void RemoveChild(Node child)
     {
-        if ( _type_ == child )
+        if ( _var_ == child )
         {
-            _type_ = null;
+            _var_ = null;
             return;
         }
-        if ( _varname_ == child )
+        if ( _id_ == child )
         {
-            _varname_ = null;
+            _id_ = null;
             return;
         }
         if ( _eol_ == child )
@@ -1260,19 +1264,253 @@ public sealed class ADeclareStatement : PDeclareStatement
 
     internal override void ReplaceChild(Node oldChild, Node newChild)
     {
-        if ( _type_ == oldChild )
+        if ( _var_ == oldChild )
         {
-            SetType ((TId) newChild);
+            SetVar ((PVar) newChild);
             return;
         }
-        if ( _varname_ == oldChild )
+        if ( _id_ == oldChild )
         {
-            SetVarname ((TId) newChild);
+            SetId ((TId) newChild);
             return;
         }
         if ( _eol_ == oldChild )
         {
             SetEol ((TEol) newChild);
+            return;
+        }
+    }
+
+}
+public sealed class AFloatvarVar : PVar
+{
+    private TKeyfloat _keyfloat_;
+
+    public AFloatvarVar ()
+    {
+    }
+
+    public AFloatvarVar (
+            TKeyfloat _keyfloat_
+    )
+    {
+        SetKeyfloat (_keyfloat_);
+    }
+
+    public override Object Clone()
+    {
+        return new AFloatvarVar (
+            (TKeyfloat)CloneNode (_keyfloat_)
+        );
+    }
+
+    public override void Apply(Switch sw)
+    {
+        ((Analysis) sw).CaseAFloatvarVar(this);
+    }
+
+    public TKeyfloat GetKeyfloat ()
+    {
+        return _keyfloat_;
+    }
+
+    public void SetKeyfloat (TKeyfloat node)
+    {
+        if(_keyfloat_ != null)
+        {
+            _keyfloat_.Parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.Parent() != null)
+            {
+                node.Parent().RemoveChild(node);
+            }
+
+            node.Parent(this);
+        }
+
+        _keyfloat_ = node;
+    }
+
+    public override string ToString()
+    {
+        return ""
+            + ToString (_keyfloat_)
+        ;
+    }
+
+    internal override void RemoveChild(Node child)
+    {
+        if ( _keyfloat_ == child )
+        {
+            _keyfloat_ = null;
+            return;
+        }
+    }
+
+    internal override void ReplaceChild(Node oldChild, Node newChild)
+    {
+        if ( _keyfloat_ == oldChild )
+        {
+            SetKeyfloat ((TKeyfloat) newChild);
+            return;
+        }
+    }
+
+}
+public sealed class AIntvarVar : PVar
+{
+    private TKeyint _keyint_;
+
+    public AIntvarVar ()
+    {
+    }
+
+    public AIntvarVar (
+            TKeyint _keyint_
+    )
+    {
+        SetKeyint (_keyint_);
+    }
+
+    public override Object Clone()
+    {
+        return new AIntvarVar (
+            (TKeyint)CloneNode (_keyint_)
+        );
+    }
+
+    public override void Apply(Switch sw)
+    {
+        ((Analysis) sw).CaseAIntvarVar(this);
+    }
+
+    public TKeyint GetKeyint ()
+    {
+        return _keyint_;
+    }
+
+    public void SetKeyint (TKeyint node)
+    {
+        if(_keyint_ != null)
+        {
+            _keyint_.Parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.Parent() != null)
+            {
+                node.Parent().RemoveChild(node);
+            }
+
+            node.Parent(this);
+        }
+
+        _keyint_ = node;
+    }
+
+    public override string ToString()
+    {
+        return ""
+            + ToString (_keyint_)
+        ;
+    }
+
+    internal override void RemoveChild(Node child)
+    {
+        if ( _keyint_ == child )
+        {
+            _keyint_ = null;
+            return;
+        }
+    }
+
+    internal override void ReplaceChild(Node oldChild, Node newChild)
+    {
+        if ( _keyint_ == oldChild )
+        {
+            SetKeyint ((TKeyint) newChild);
+            return;
+        }
+    }
+
+}
+public sealed class AStrvarVar : PVar
+{
+    private TKeystr _keystr_;
+
+    public AStrvarVar ()
+    {
+    }
+
+    public AStrvarVar (
+            TKeystr _keystr_
+    )
+    {
+        SetKeystr (_keystr_);
+    }
+
+    public override Object Clone()
+    {
+        return new AStrvarVar (
+            (TKeystr)CloneNode (_keystr_)
+        );
+    }
+
+    public override void Apply(Switch sw)
+    {
+        ((Analysis) sw).CaseAStrvarVar(this);
+    }
+
+    public TKeystr GetKeystr ()
+    {
+        return _keystr_;
+    }
+
+    public void SetKeystr (TKeystr node)
+    {
+        if(_keystr_ != null)
+        {
+            _keystr_.Parent(null);
+        }
+
+        if(node != null)
+        {
+            if(node.Parent() != null)
+            {
+                node.Parent().RemoveChild(node);
+            }
+
+            node.Parent(this);
+        }
+
+        _keystr_ = node;
+    }
+
+    public override string ToString()
+    {
+        return ""
+            + ToString (_keystr_)
+        ;
+    }
+
+    internal override void RemoveChild(Node child)
+    {
+        if ( _keystr_ == child )
+        {
+            _keystr_ = null;
+            return;
+        }
+    }
+
+    internal override void ReplaceChild(Node oldChild, Node newChild)
+    {
+        if ( _keystr_ == oldChild )
+        {
+            SetKeystr ((TKeystr) newChild);
             return;
         }
     }

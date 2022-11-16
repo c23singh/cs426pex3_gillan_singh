@@ -1,6 +1,3 @@
-﻿func foo()(
-)
-
-main(
-
+﻿main(
+	int x;
 )
