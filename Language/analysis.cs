@@ -50,12 +50,8 @@ public interface Analysis : Switch
     void CaseASingleParameters(ASingleParameters node);
     void CaseAMultipleParameters(AMultipleParameters node);
     void CaseADefineFunction(ADefineFunction node);
-    void CaseASingleintFuncparams(ASingleintFuncparams node);
-    void CaseASinglefloatFuncparams(ASinglefloatFuncparams node);
-    void CaseASinglestrFuncparams(ASinglestrFuncparams node);
-    void CaseAMultintFuncparams(AMultintFuncparams node);
-    void CaseAMultifloatFuncparams(AMultifloatFuncparams node);
-    void CaseAMultistrFuncparams(AMultistrFuncparams node);
+    void CaseASingleFuncparams(ASingleFuncparams node);
+    void CaseAMultipleFuncparams(AMultipleFuncparams node);
     void CaseAEmptyFuncparams(AEmptyFuncparams node);
     void CaseAIfStatement(AIfStatement node);
     void CaseAWhileStatement(AWhileStatement node);
@@ -312,27 +308,11 @@ public class AnalysisAdapter : Analysis
     {
         DefaultCase(node);
     }
-    public virtual void CaseASingleintFuncparams(ASingleintFuncparams node)
+    public virtual void CaseASingleFuncparams(ASingleFuncparams node)
     {
         DefaultCase(node);
     }
-    public virtual void CaseASinglefloatFuncparams(ASinglefloatFuncparams node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseASinglestrFuncparams(ASinglestrFuncparams node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAMultintFuncparams(AMultintFuncparams node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAMultifloatFuncparams(AMultifloatFuncparams node)
-    {
-        DefaultCase(node);
-    }
-    public virtual void CaseAMultistrFuncparams(AMultistrFuncparams node)
+    public virtual void CaseAMultipleFuncparams(AMultipleFuncparams node)
     {
         DefaultCase(node);
     }
@@ -1370,95 +1350,49 @@ public class DepthFirstAdapter : AnalysisAdapter
         }
         OutADefineFunction(node);
     }
-    public virtual void InASingleintFuncparams(ASingleintFuncparams node)
+    public virtual void InASingleFuncparams(ASingleFuncparams node)
     {
         DefaultIn(node);
     }
 
-    public virtual void OutASingleintFuncparams(ASingleintFuncparams node)
+    public virtual void OutASingleFuncparams(ASingleFuncparams node)
     {
         DefaultOut(node);
     }
 
-    public override void CaseASingleintFuncparams(ASingleintFuncparams node)
+    public override void CaseASingleFuncparams(ASingleFuncparams node)
     {
-        InASingleintFuncparams(node);
-        if(node.GetKeyint() != null)
+        InASingleFuncparams(node);
+        if(node.GetType() != null)
         {
-            node.GetKeyint().Apply(this);
+            node.GetType().Apply(this);
         }
-        if(node.GetId() != null)
+        if(node.GetName() != null)
         {
-            node.GetId().Apply(this);
+            node.GetName().Apply(this);
         }
-        OutASingleintFuncparams(node);
+        OutASingleFuncparams(node);
     }
-    public virtual void InASinglefloatFuncparams(ASinglefloatFuncparams node)
+    public virtual void InAMultipleFuncparams(AMultipleFuncparams node)
     {
         DefaultIn(node);
     }
 
-    public virtual void OutASinglefloatFuncparams(ASinglefloatFuncparams node)
+    public virtual void OutAMultipleFuncparams(AMultipleFuncparams node)
     {
         DefaultOut(node);
     }
 
-    public override void CaseASinglefloatFuncparams(ASinglefloatFuncparams node)
+    public override void CaseAMultipleFuncparams(AMultipleFuncparams node)
     {
-        InASinglefloatFuncparams(node);
-        if(node.GetKeyfloat() != null)
+        InAMultipleFuncparams(node);
+        if(node.GetType() != null)
         {
-            node.GetKeyfloat().Apply(this);
+            node.GetType().Apply(this);
         }
-        if(node.GetId() != null)
+        if(node.GetName() != null)
         {
-            node.GetId().Apply(this);
-        }
-        OutASinglefloatFuncparams(node);
-    }
-    public virtual void InASinglestrFuncparams(ASinglestrFuncparams node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutASinglestrFuncparams(ASinglestrFuncparams node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseASinglestrFuncparams(ASinglestrFuncparams node)
-    {
-        InASinglestrFuncparams(node);
-        if(node.GetKeystr() != null)
-        {
-            node.GetKeystr().Apply(this);
-        }
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        OutASinglestrFuncparams(node);
-    }
-    public virtual void InAMultintFuncparams(AMultintFuncparams node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAMultintFuncparams(AMultintFuncparams node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAMultintFuncparams(AMultintFuncparams node)
-    {
-        InAMultintFuncparams(node);
-        if(node.GetKeyint() != null)
-        {
-            node.GetKeyint().Apply(this);
-        }
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
+            node.GetName().Apply(this);
         }
         if(node.GetComma() != null)
         {
@@ -1468,69 +1402,7 @@ public class DepthFirstAdapter : AnalysisAdapter
         {
             node.GetFuncparams().Apply(this);
         }
-        OutAMultintFuncparams(node);
-    }
-    public virtual void InAMultifloatFuncparams(AMultifloatFuncparams node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAMultifloatFuncparams(AMultifloatFuncparams node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAMultifloatFuncparams(AMultifloatFuncparams node)
-    {
-        InAMultifloatFuncparams(node);
-        if(node.GetKeyfloat() != null)
-        {
-            node.GetKeyfloat().Apply(this);
-        }
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        if(node.GetComma() != null)
-        {
-            node.GetComma().Apply(this);
-        }
-        if(node.GetFuncparams() != null)
-        {
-            node.GetFuncparams().Apply(this);
-        }
-        OutAMultifloatFuncparams(node);
-    }
-    public virtual void InAMultistrFuncparams(AMultistrFuncparams node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAMultistrFuncparams(AMultistrFuncparams node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAMultistrFuncparams(AMultistrFuncparams node)
-    {
-        InAMultistrFuncparams(node);
-        if(node.GetKeystr() != null)
-        {
-            node.GetKeystr().Apply(this);
-        }
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        if(node.GetComma() != null)
-        {
-            node.GetComma().Apply(this);
-        }
-        if(node.GetFuncparams() != null)
-        {
-            node.GetFuncparams().Apply(this);
-        }
-        OutAMultistrFuncparams(node);
+        OutAMultipleFuncparams(node);
     }
     public virtual void InAEmptyFuncparams(AEmptyFuncparams node)
     {
@@ -2767,88 +2639,42 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
         }
         OutADefineFunction(node);
     }
-    public virtual void InASingleintFuncparams(ASingleintFuncparams node)
+    public virtual void InASingleFuncparams(ASingleFuncparams node)
     {
         DefaultIn(node);
     }
 
-    public virtual void OutASingleintFuncparams(ASingleintFuncparams node)
+    public virtual void OutASingleFuncparams(ASingleFuncparams node)
     {
         DefaultOut(node);
     }
 
-    public override void CaseASingleintFuncparams(ASingleintFuncparams node)
+    public override void CaseASingleFuncparams(ASingleFuncparams node)
     {
-        InASingleintFuncparams(node);
-        if(node.GetId() != null)
+        InASingleFuncparams(node);
+        if(node.GetName() != null)
         {
-            node.GetId().Apply(this);
+            node.GetName().Apply(this);
         }
-        if(node.GetKeyint() != null)
+        if(node.GetType() != null)
         {
-            node.GetKeyint().Apply(this);
+            node.GetType().Apply(this);
         }
-        OutASingleintFuncparams(node);
+        OutASingleFuncparams(node);
     }
-    public virtual void InASinglefloatFuncparams(ASinglefloatFuncparams node)
+    public virtual void InAMultipleFuncparams(AMultipleFuncparams node)
     {
         DefaultIn(node);
     }
 
-    public virtual void OutASinglefloatFuncparams(ASinglefloatFuncparams node)
+    public virtual void OutAMultipleFuncparams(AMultipleFuncparams node)
     {
         DefaultOut(node);
     }
 
-    public override void CaseASinglefloatFuncparams(ASinglefloatFuncparams node)
+    public override void CaseAMultipleFuncparams(AMultipleFuncparams node)
     {
-        InASinglefloatFuncparams(node);
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        if(node.GetKeyfloat() != null)
-        {
-            node.GetKeyfloat().Apply(this);
-        }
-        OutASinglefloatFuncparams(node);
-    }
-    public virtual void InASinglestrFuncparams(ASinglestrFuncparams node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutASinglestrFuncparams(ASinglestrFuncparams node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseASinglestrFuncparams(ASinglestrFuncparams node)
-    {
-        InASinglestrFuncparams(node);
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        if(node.GetKeystr() != null)
-        {
-            node.GetKeystr().Apply(this);
-        }
-        OutASinglestrFuncparams(node);
-    }
-    public virtual void InAMultintFuncparams(AMultintFuncparams node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAMultintFuncparams(AMultintFuncparams node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAMultintFuncparams(AMultintFuncparams node)
-    {
-        InAMultintFuncparams(node);
+        InAMultipleFuncparams(node);
         if(node.GetFuncparams() != null)
         {
             node.GetFuncparams().Apply(this);
@@ -2857,77 +2683,15 @@ public class ReversedDepthFirstAdapter : AnalysisAdapter
         {
             node.GetComma().Apply(this);
         }
-        if(node.GetId() != null)
+        if(node.GetName() != null)
         {
-            node.GetId().Apply(this);
+            node.GetName().Apply(this);
         }
-        if(node.GetKeyint() != null)
+        if(node.GetType() != null)
         {
-            node.GetKeyint().Apply(this);
+            node.GetType().Apply(this);
         }
-        OutAMultintFuncparams(node);
-    }
-    public virtual void InAMultifloatFuncparams(AMultifloatFuncparams node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAMultifloatFuncparams(AMultifloatFuncparams node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAMultifloatFuncparams(AMultifloatFuncparams node)
-    {
-        InAMultifloatFuncparams(node);
-        if(node.GetFuncparams() != null)
-        {
-            node.GetFuncparams().Apply(this);
-        }
-        if(node.GetComma() != null)
-        {
-            node.GetComma().Apply(this);
-        }
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        if(node.GetKeyfloat() != null)
-        {
-            node.GetKeyfloat().Apply(this);
-        }
-        OutAMultifloatFuncparams(node);
-    }
-    public virtual void InAMultistrFuncparams(AMultistrFuncparams node)
-    {
-        DefaultIn(node);
-    }
-
-    public virtual void OutAMultistrFuncparams(AMultistrFuncparams node)
-    {
-        DefaultOut(node);
-    }
-
-    public override void CaseAMultistrFuncparams(AMultistrFuncparams node)
-    {
-        InAMultistrFuncparams(node);
-        if(node.GetFuncparams() != null)
-        {
-            node.GetFuncparams().Apply(this);
-        }
-        if(node.GetComma() != null)
-        {
-            node.GetComma().Apply(this);
-        }
-        if(node.GetId() != null)
-        {
-            node.GetId().Apply(this);
-        }
-        if(node.GetKeystr() != null)
-        {
-            node.GetKeystr().Apply(this);
-        }
-        OutAMultistrFuncparams(node);
+        OutAMultipleFuncparams(node);
     }
     public virtual void InAEmptyFuncparams(AEmptyFuncparams node)
     {

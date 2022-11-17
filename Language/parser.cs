@@ -578,43 +578,43 @@ public class Parser
                     case 38:
         {
       ArrayList list = New38();
-      Push(GoTo(18), list);
+      Push(GoTo(19), list);
         }
         break;
                     case 39:
         {
       ArrayList list = New39();
-      Push(GoTo(18), list);
+      Push(GoTo(20), list);
         }
         break;
                     case 40:
         {
       ArrayList list = New40();
-      Push(GoTo(18), list);
+      Push(GoTo(21), list);
         }
         break;
                     case 41:
         {
       ArrayList list = New41();
-      Push(GoTo(18), list);
+      Push(GoTo(22), list);
         }
         break;
                     case 42:
         {
       ArrayList list = New42();
-      Push(GoTo(19), list);
+      Push(GoTo(22), list);
         }
         break;
                     case 43:
         {
       ArrayList list = New43();
-      Push(GoTo(20), list);
+      Push(GoTo(22), list);
         }
         break;
                     case 44:
         {
       ArrayList list = New44();
-      Push(GoTo(21), list);
+      Push(GoTo(22), list);
         }
         break;
                     case 45:
@@ -626,72 +626,48 @@ public class Parser
                     case 46:
         {
       ArrayList list = New46();
-      Push(GoTo(22), list);
+      Push(GoTo(23), list);
         }
         break;
                     case 47:
         {
       ArrayList list = New47();
-      Push(GoTo(22), list);
+      Push(GoTo(23), list);
         }
         break;
                     case 48:
         {
       ArrayList list = New48();
-      Push(GoTo(22), list);
+      Push(GoTo(24), list);
         }
         break;
                     case 49:
         {
       ArrayList list = New49();
-      Push(GoTo(22), list);
+      Push(GoTo(24), list);
         }
         break;
                     case 50:
         {
       ArrayList list = New50();
-      Push(GoTo(23), list);
+      Push(GoTo(25), list);
         }
         break;
                     case 51:
         {
       ArrayList list = New51();
-      Push(GoTo(23), list);
+      Push(GoTo(25), list);
         }
         break;
                     case 52:
         {
       ArrayList list = New52();
-      Push(GoTo(24), list);
+      Push(GoTo(26), list);
         }
         break;
                     case 53:
         {
       ArrayList list = New53();
-      Push(GoTo(24), list);
-        }
-        break;
-                    case 54:
-        {
-      ArrayList list = New54();
-      Push(GoTo(25), list);
-        }
-        break;
-                    case 55:
-        {
-      ArrayList list = New55();
-      Push(GoTo(25), list);
-        }
-        break;
-                    case 56:
-        {
-      ArrayList list = New56();
-      Push(GoTo(26), list);
-        }
-        break;
-                    case 57:
-        {
-      ArrayList list = New57();
       Push(GoTo(26), list);
         }
         break;
@@ -1201,10 +1177,10 @@ public class Parser
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList2 = (ArrayList) Pop();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
-        TKeyint tkeyintNode2 = (TKeyint)nodeArrayList1[0];
+        TId tidNode2 = (TId)nodeArrayList1[0];
         TId tidNode3 = (TId)nodeArrayList2[0];
-        ASingleintFuncparams pfuncparamsNode1 = new ASingleintFuncparams (
-              tkeyintNode2,
+        ASingleFuncparams pfuncparamsNode1 = new ASingleFuncparams (
+              tidNode2,
               tidNode3
         );
         nodeList.Add(pfuncparamsNode1);
@@ -1213,13 +1189,19 @@ public class Parser
     ArrayList New36()
     {
         ArrayList nodeList = new ArrayList();
+        ArrayList nodeArrayList4 = (ArrayList) Pop();
+        ArrayList nodeArrayList3 = (ArrayList) Pop();
         ArrayList nodeArrayList2 = (ArrayList) Pop();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
-        TKeyfloat tkeyfloatNode2 = (TKeyfloat)nodeArrayList1[0];
+        TId tidNode2 = (TId)nodeArrayList1[0];
         TId tidNode3 = (TId)nodeArrayList2[0];
-        ASinglefloatFuncparams pfuncparamsNode1 = new ASinglefloatFuncparams (
-              tkeyfloatNode2,
-              tidNode3
+        TComma tcommaNode4 = (TComma)nodeArrayList3[0];
+        PFuncparams pfuncparamsNode5 = (PFuncparams)nodeArrayList4[0];
+        AMultipleFuncparams pfuncparamsNode1 = new AMultipleFuncparams (
+              tidNode2,
+              tidNode3,
+              tcommaNode4,
+              pfuncparamsNode5
         );
         nodeList.Add(pfuncparamsNode1);
         return nodeList;
@@ -1227,86 +1209,12 @@ public class Parser
     ArrayList New37()
     {
         ArrayList nodeList = new ArrayList();
-        ArrayList nodeArrayList2 = (ArrayList) Pop();
-        ArrayList nodeArrayList1 = (ArrayList) Pop();
-        TKeystr tkeystrNode2 = (TKeystr)nodeArrayList1[0];
-        TId tidNode3 = (TId)nodeArrayList2[0];
-        ASinglestrFuncparams pfuncparamsNode1 = new ASinglestrFuncparams (
-              tkeystrNode2,
-              tidNode3
-        );
-        nodeList.Add(pfuncparamsNode1);
-        return nodeList;
-    }
-    ArrayList New38()
-    {
-        ArrayList nodeList = new ArrayList();
-        ArrayList nodeArrayList4 = (ArrayList) Pop();
-        ArrayList nodeArrayList3 = (ArrayList) Pop();
-        ArrayList nodeArrayList2 = (ArrayList) Pop();
-        ArrayList nodeArrayList1 = (ArrayList) Pop();
-        TKeyint tkeyintNode2 = (TKeyint)nodeArrayList1[0];
-        TId tidNode3 = (TId)nodeArrayList2[0];
-        TComma tcommaNode4 = (TComma)nodeArrayList3[0];
-        PFuncparams pfuncparamsNode5 = (PFuncparams)nodeArrayList4[0];
-        AMultintFuncparams pfuncparamsNode1 = new AMultintFuncparams (
-              tkeyintNode2,
-              tidNode3,
-              tcommaNode4,
-              pfuncparamsNode5
-        );
-        nodeList.Add(pfuncparamsNode1);
-        return nodeList;
-    }
-    ArrayList New39()
-    {
-        ArrayList nodeList = new ArrayList();
-        ArrayList nodeArrayList4 = (ArrayList) Pop();
-        ArrayList nodeArrayList3 = (ArrayList) Pop();
-        ArrayList nodeArrayList2 = (ArrayList) Pop();
-        ArrayList nodeArrayList1 = (ArrayList) Pop();
-        TKeyfloat tkeyfloatNode2 = (TKeyfloat)nodeArrayList1[0];
-        TId tidNode3 = (TId)nodeArrayList2[0];
-        TComma tcommaNode4 = (TComma)nodeArrayList3[0];
-        PFuncparams pfuncparamsNode5 = (PFuncparams)nodeArrayList4[0];
-        AMultifloatFuncparams pfuncparamsNode1 = new AMultifloatFuncparams (
-              tkeyfloatNode2,
-              tidNode3,
-              tcommaNode4,
-              pfuncparamsNode5
-        );
-        nodeList.Add(pfuncparamsNode1);
-        return nodeList;
-    }
-    ArrayList New40()
-    {
-        ArrayList nodeList = new ArrayList();
-        ArrayList nodeArrayList4 = (ArrayList) Pop();
-        ArrayList nodeArrayList3 = (ArrayList) Pop();
-        ArrayList nodeArrayList2 = (ArrayList) Pop();
-        ArrayList nodeArrayList1 = (ArrayList) Pop();
-        TKeystr tkeystrNode2 = (TKeystr)nodeArrayList1[0];
-        TId tidNode3 = (TId)nodeArrayList2[0];
-        TComma tcommaNode4 = (TComma)nodeArrayList3[0];
-        PFuncparams pfuncparamsNode5 = (PFuncparams)nodeArrayList4[0];
-        AMultistrFuncparams pfuncparamsNode1 = new AMultistrFuncparams (
-              tkeystrNode2,
-              tidNode3,
-              tcommaNode4,
-              pfuncparamsNode5
-        );
-        nodeList.Add(pfuncparamsNode1);
-        return nodeList;
-    }
-    ArrayList New41()
-    {
-        ArrayList nodeList = new ArrayList();
         AEmptyFuncparams pfuncparamsNode1 = new AEmptyFuncparams (
         );
         nodeList.Add(pfuncparamsNode1);
         return nodeList;
     }
-    ArrayList New42()
+    ArrayList New38()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList7 = (ArrayList) Pop();
@@ -1335,7 +1243,7 @@ public class Parser
         nodeList.Add(pifstatementNode1);
         return nodeList;
     }
-    ArrayList New43()
+    ArrayList New39()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList7 = (ArrayList) Pop();
@@ -1364,7 +1272,7 @@ public class Parser
         nodeList.Add(pwhilestatementNode1);
         return nodeList;
     }
-    ArrayList New44()
+    ArrayList New40()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList4 = (ArrayList) Pop();
@@ -1384,7 +1292,7 @@ public class Parser
         nodeList.Add(pmainblockNode1);
         return nodeList;
     }
-    ArrayList New45()
+    ArrayList New41()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
@@ -1395,7 +1303,7 @@ public class Parser
         nodeList.Add(pequalityNode1);
         return nodeList;
     }
-    ArrayList New46()
+    ArrayList New42()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
@@ -1406,7 +1314,7 @@ public class Parser
         nodeList.Add(pequalityNode1);
         return nodeList;
     }
-    ArrayList New47()
+    ArrayList New43()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
@@ -1417,7 +1325,7 @@ public class Parser
         nodeList.Add(pequalityNode1);
         return nodeList;
     }
-    ArrayList New48()
+    ArrayList New44()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
@@ -1428,7 +1336,7 @@ public class Parser
         nodeList.Add(pequalityNode1);
         return nodeList;
     }
-    ArrayList New49()
+    ArrayList New45()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
@@ -1439,7 +1347,7 @@ public class Parser
         nodeList.Add(pequalityNode1);
         return nodeList;
     }
-    ArrayList New50()
+    ArrayList New46()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList3 = (ArrayList) Pop();
@@ -1456,7 +1364,7 @@ public class Parser
         nodeList.Add(plogicalNode1);
         return nodeList;
     }
-    ArrayList New51()
+    ArrayList New47()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
@@ -1467,7 +1375,7 @@ public class Parser
         nodeList.Add(plogicalNode1);
         return nodeList;
     }
-    ArrayList New52()
+    ArrayList New48()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList3 = (ArrayList) Pop();
@@ -1484,7 +1392,7 @@ public class Parser
         nodeList.Add(plogical2Node1);
         return nodeList;
     }
-    ArrayList New53()
+    ArrayList New49()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
@@ -1495,7 +1403,7 @@ public class Parser
         nodeList.Add(plogical2Node1);
         return nodeList;
     }
-    ArrayList New54()
+    ArrayList New50()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList2 = (ArrayList) Pop();
@@ -1509,7 +1417,7 @@ public class Parser
         nodeList.Add(plogical3Node1);
         return nodeList;
     }
-    ArrayList New55()
+    ArrayList New51()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
@@ -1520,7 +1428,7 @@ public class Parser
         nodeList.Add(plogical3Node1);
         return nodeList;
     }
-    ArrayList New56()
+    ArrayList New52()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList3 = (ArrayList) Pop();
@@ -1537,7 +1445,7 @@ public class Parser
         nodeList.Add(pcomparisonNode1);
         return nodeList;
     }
-    ArrayList New57()
+    ArrayList New53()
     {
         ArrayList nodeList = new ArrayList();
         ArrayList nodeArrayList1 = (ArrayList) Pop();
@@ -1620,16 +1528,14 @@ public class Parser
         new int[] {29, 0, 24},
       },
       new int[][] {
-        new int[] {-1, 1, 41},
-        new int[] {20, 0, 32},
-        new int[] {21, 0, 33},
-        new int[] {25, 0, 34},
+        new int[] {-1, 1, 37},
+        new int[] {19, 0, 32},
       },
       new int[][] {
         new int[] {-1, 1, 6},
-        new int[] {19, 0, 36},
-        new int[] {22, 0, 37},
-        new int[] {26, 0, 38},
+        new int[] {19, 0, 34},
+        new int[] {22, 0, 35},
+        new int[] {26, 0, 36},
       },
       new int[][] {
         new int[] {-1, 3, 19},
@@ -1661,20 +1567,20 @@ public class Parser
       },
       new int[][] {
         new int[] {-1, 3, 25},
-        new int[] {0, 0, 48},
-        new int[] {7, 0, 49},
+        new int[] {0, 0, 46},
+        new int[] {7, 0, 47},
       },
       new int[][] {
         new int[] {-1, 1, 16},
-        new int[] {9, 0, 50},
+        new int[] {9, 0, 48},
       },
       new int[][] {
         new int[] {-1, 1, 18},
-        new int[] {8, 0, 51},
+        new int[] {8, 0, 49},
       },
       new int[][] {
         new int[] {-1, 1, 20},
-        new int[] {10, 0, 52},
+        new int[] {10, 0, 50},
       },
       new int[][] {
         new int[] {-1, 1, 22},
@@ -1687,43 +1593,35 @@ public class Parser
       },
       new int[][] {
         new int[] {-1, 3, 32},
-        new int[] {19, 0, 53},
+        new int[] {19, 0, 51},
       },
       new int[][] {
         new int[] {-1, 3, 33},
-        new int[] {19, 0, 54},
+        new int[] {12, 0, 52},
       },
       new int[][] {
         new int[] {-1, 3, 34},
-        new int[] {19, 0, 55},
+        new int[] {6, 0, 16},
+        new int[] {11, 0, 53},
+        new int[] {19, 0, 54},
       },
       new int[][] {
         new int[] {-1, 3, 35},
-        new int[] {12, 0, 56},
+        new int[] {11, 0, 55},
       },
       new int[][] {
         new int[] {-1, 3, 36},
-        new int[] {6, 0, 16},
-        new int[] {11, 0, 57},
-        new int[] {19, 0, 58},
+        new int[] {11, 0, 56},
       },
       new int[][] {
         new int[] {-1, 3, 37},
-        new int[] {11, 0, 59},
-      },
-      new int[][] {
-        new int[] {-1, 3, 38},
-        new int[] {11, 0, 60},
-      },
-      new int[][] {
-        new int[] {-1, 3, 39},
-        new int[] {12, 0, 61},
+        new int[] {12, 0, 57},
       },
       new int[][] {
         new int[] {-1, 1, 6},
-        new int[] {19, 0, 36},
-        new int[] {22, 0, 37},
-        new int[] {26, 0, 38},
+        new int[] {19, 0, 34},
+        new int[] {22, 0, 35},
+        new int[] {26, 0, 36},
       },
       new int[][] {
         new int[] {-1, 1, 7},
@@ -1744,12 +1642,30 @@ public class Parser
         new int[] {-1, 1, 25},
       },
       new int[][] {
-        new int[] {-1, 3, 47},
-        new int[] {7, 0, 49},
-        new int[] {12, 0, 63},
+        new int[] {-1, 3, 45},
+        new int[] {7, 0, 47},
+        new int[] {12, 0, 59},
       },
       new int[][] {
         new int[] {-1, 1, 14},
+      },
+      new int[][] {
+        new int[] {-1, 3, 47},
+        new int[] {9, 0, 19},
+        new int[] {11, 0, 20},
+        new int[] {19, 0, 21},
+        new int[] {27, 0, 22},
+        new int[] {28, 0, 23},
+        new int[] {29, 0, 24},
+      },
+      new int[][] {
+        new int[] {-1, 3, 48},
+        new int[] {9, 0, 19},
+        new int[] {11, 0, 20},
+        new int[] {19, 0, 21},
+        new int[] {27, 0, 22},
+        new int[] {28, 0, 23},
+        new int[] {29, 0, 24},
       },
       new int[][] {
         new int[] {-1, 3, 49},
@@ -1770,16 +1686,15 @@ public class Parser
         new int[] {29, 0, 24},
       },
       new int[][] {
-        new int[] {-1, 3, 51},
-        new int[] {9, 0, 19},
-        new int[] {11, 0, 20},
-        new int[] {19, 0, 21},
-        new int[] {27, 0, 22},
-        new int[] {28, 0, 23},
-        new int[] {29, 0, 24},
+        new int[] {-1, 1, 35},
+        new int[] {16, 0, 64},
       },
       new int[][] {
         new int[] {-1, 3, 52},
+        new int[] {11, 0, 65},
+      },
+      new int[][] {
+        new int[] {-1, 3, 53},
         new int[] {9, 0, 19},
         new int[] {11, 0, 20},
         new int[] {19, 0, 21},
@@ -1788,56 +1703,31 @@ public class Parser
         new int[] {29, 0, 24},
       },
       new int[][] {
-        new int[] {-1, 1, 36},
-        new int[] {16, 0, 68},
+        new int[] {-1, 3, 54},
+        new int[] {0, 0, 68},
       },
       new int[][] {
-        new int[] {-1, 1, 35},
-        new int[] {16, 0, 69},
-      },
-      new int[][] {
-        new int[] {-1, 1, 37},
-        new int[] {16, 0, 70},
+        new int[] {-1, 3, 55},
+        new int[] {9, 0, 19},
+        new int[] {11, 0, 20},
+        new int[] {15, 0, 69},
+        new int[] {19, 0, 21},
+        new int[] {27, 0, 22},
+        new int[] {28, 0, 23},
+        new int[] {29, 0, 24},
       },
       new int[][] {
         new int[] {-1, 3, 56},
-        new int[] {11, 0, 71},
-      },
-      new int[][] {
-        new int[] {-1, 3, 57},
         new int[] {9, 0, 19},
         new int[] {11, 0, 20},
+        new int[] {15, 0, 69},
         new int[] {19, 0, 21},
         new int[] {27, 0, 22},
         new int[] {28, 0, 23},
         new int[] {29, 0, 24},
       },
       new int[][] {
-        new int[] {-1, 3, 58},
-        new int[] {0, 0, 74},
-      },
-      new int[][] {
-        new int[] {-1, 3, 59},
-        new int[] {9, 0, 19},
-        new int[] {11, 0, 20},
-        new int[] {15, 0, 75},
-        new int[] {19, 0, 21},
-        new int[] {27, 0, 22},
-        new int[] {28, 0, 23},
-        new int[] {29, 0, 24},
-      },
-      new int[][] {
-        new int[] {-1, 3, 60},
-        new int[] {9, 0, 19},
-        new int[] {11, 0, 20},
-        new int[] {15, 0, 75},
-        new int[] {19, 0, 21},
-        new int[] {27, 0, 22},
-        new int[] {28, 0, 23},
-        new int[] {29, 0, 24},
-      },
-      new int[][] {
-        new int[] {-1, 1, 44},
+        new int[] {-1, 1, 40},
       },
       new int[][] {
         new int[] {-1, 1, 5},
@@ -1847,57 +1737,43 @@ public class Parser
       },
       new int[][] {
         new int[] {-1, 1, 15},
-        new int[] {9, 0, 50},
+        new int[] {9, 0, 48},
       },
       new int[][] {
         new int[] {-1, 1, 17},
-        new int[] {8, 0, 51},
+        new int[] {8, 0, 49},
       },
       new int[][] {
         new int[] {-1, 1, 19},
-        new int[] {10, 0, 52},
+        new int[] {10, 0, 50},
       },
       new int[][] {
         new int[] {-1, 1, 21},
       },
       new int[][] {
-        new int[] {-1, 1, 41},
-        new int[] {20, 0, 32},
-        new int[] {21, 0, 33},
-        new int[] {25, 0, 34},
-      },
-      new int[][] {
-        new int[] {-1, 1, 41},
-        new int[] {20, 0, 32},
-        new int[] {21, 0, 33},
-        new int[] {25, 0, 34},
-      },
-      new int[][] {
-        new int[] {-1, 1, 41},
-        new int[] {20, 0, 32},
-        new int[] {21, 0, 33},
-        new int[] {25, 0, 34},
+        new int[] {-1, 1, 37},
+        new int[] {19, 0, 32},
       },
       new int[][] {
         new int[] {-1, 1, 6},
-        new int[] {19, 0, 36},
-        new int[] {22, 0, 37},
-        new int[] {26, 0, 38},
+        new int[] {19, 0, 34},
+        new int[] {22, 0, 35},
+        new int[] {26, 0, 36},
       },
       new int[][] {
         new int[] {-1, 1, 32},
-        new int[] {7, 0, 49},
-        new int[] {16, 0, 86},
+        new int[] {7, 0, 47},
+        new int[] {16, 0, 78},
       },
       new int[][] {
-        new int[] {-1, 3, 73},
-        new int[] {12, 0, 87},
+        new int[] {-1, 3, 67},
+        new int[] {12, 0, 79},
       },
       new int[][] {
         new int[] {-1, 1, 12},
       },
       new int[][] {
-        new int[] {-1, 3, 75},
+        new int[] {-1, 3, 69},
         new int[] {9, 0, 19},
         new int[] {11, 0, 20},
         new int[] {19, 0, 21},
@@ -1906,46 +1782,71 @@ public class Parser
         new int[] {29, 0, 24},
       },
       new int[][] {
-        new int[] {-1, 1, 57},
-        new int[] {1, 0, 89},
-        new int[] {2, 0, 90},
-        new int[] {3, 0, 91},
-        new int[] {4, 0, 92},
-        new int[] {5, 0, 93},
-        new int[] {7, 0, 49},
+        new int[] {-1, 1, 53},
+        new int[] {1, 0, 81},
+        new int[] {2, 0, 82},
+        new int[] {3, 0, 83},
+        new int[] {4, 0, 84},
+        new int[] {5, 0, 85},
+        new int[] {7, 0, 47},
       },
       new int[][] {
-        new int[] {-1, 3, 77},
-        new int[] {12, 0, 95},
-        new int[] {13, 0, 96},
+        new int[] {-1, 3, 71},
+        new int[] {12, 0, 87},
+        new int[] {13, 0, 88},
+      },
+      new int[][] {
+        new int[] {-1, 1, 47},
+        new int[] {14, 0, 89},
+      },
+      new int[][] {
+        new int[] {-1, 1, 49},
       },
       new int[][] {
         new int[] {-1, 1, 51},
-        new int[] {14, 0, 97},
       },
       new int[][] {
-        new int[] {-1, 1, 53},
+        new int[] {-1, 3, 75},
+        new int[] {12, 0, 90},
+        new int[] {13, 0, 88},
       },
       new int[][] {
-        new int[] {-1, 1, 55},
+        new int[] {-1, 1, 36},
       },
       new int[][] {
-        new int[] {-1, 3, 81},
-        new int[] {12, 0, 98},
-        new int[] {13, 0, 96},
+        new int[] {-1, 3, 77},
+        new int[] {12, 0, 91},
       },
       new int[][] {
-        new int[] {-1, 1, 39},
+        new int[] {-1, 3, 78},
+        new int[] {9, 0, 19},
+        new int[] {11, 0, 20},
+        new int[] {19, 0, 21},
+        new int[] {27, 0, 22},
+        new int[] {28, 0, 23},
+        new int[] {29, 0, 24},
       },
       new int[][] {
-        new int[] {-1, 1, 38},
+        new int[] {-1, 3, 79},
+        new int[] {0, 0, 93},
       },
       new int[][] {
-        new int[] {-1, 1, 40},
+        new int[] {-1, 1, 50},
       },
       new int[][] {
-        new int[] {-1, 3, 85},
-        new int[] {12, 0, 99},
+        new int[] {-1, 1, 41},
+      },
+      new int[][] {
+        new int[] {-1, 1, 42},
+      },
+      new int[][] {
+        new int[] {-1, 1, 43},
+      },
+      new int[][] {
+        new int[] {-1, 1, 44},
+      },
+      new int[][] {
+        new int[] {-1, 1, 45},
       },
       new int[][] {
         new int[] {-1, 3, 86},
@@ -1958,62 +1859,31 @@ public class Parser
       },
       new int[][] {
         new int[] {-1, 3, 87},
-        new int[] {0, 0, 101},
+        new int[] {11, 0, 95},
       },
       new int[][] {
-        new int[] {-1, 1, 54},
-      },
-      new int[][] {
-        new int[] {-1, 1, 45},
-      },
-      new int[][] {
-        new int[] {-1, 1, 46},
-      },
-      new int[][] {
-        new int[] {-1, 1, 47},
-      },
-      new int[][] {
-        new int[] {-1, 1, 48},
-      },
-      new int[][] {
-        new int[] {-1, 1, 49},
-      },
-      new int[][] {
-        new int[] {-1, 3, 94},
+        new int[] {-1, 3, 88},
         new int[] {9, 0, 19},
         new int[] {11, 0, 20},
+        new int[] {15, 0, 69},
         new int[] {19, 0, 21},
         new int[] {27, 0, 22},
         new int[] {28, 0, 23},
         new int[] {29, 0, 24},
       },
       new int[][] {
-        new int[] {-1, 3, 95},
-        new int[] {11, 0, 103},
-      },
-      new int[][] {
-        new int[] {-1, 3, 96},
+        new int[] {-1, 3, 89},
         new int[] {9, 0, 19},
         new int[] {11, 0, 20},
-        new int[] {15, 0, 75},
+        new int[] {15, 0, 69},
         new int[] {19, 0, 21},
         new int[] {27, 0, 22},
         new int[] {28, 0, 23},
         new int[] {29, 0, 24},
       },
       new int[][] {
-        new int[] {-1, 3, 97},
-        new int[] {9, 0, 19},
-        new int[] {11, 0, 20},
-        new int[] {15, 0, 75},
-        new int[] {19, 0, 21},
-        new int[] {27, 0, 22},
-        new int[] {28, 0, 23},
-        new int[] {29, 0, 24},
-      },
-      new int[][] {
-        new int[] {-1, 3, 98},
-        new int[] {11, 0, 106},
+        new int[] {-1, 3, 90},
+        new int[] {11, 0, 98},
       },
       new int[][] {
         new int[] {-1, 1, 34},
@@ -2025,41 +1895,41 @@ public class Parser
         new int[] {-1, 1, 31},
       },
       new int[][] {
-        new int[] {-1, 1, 56},
-        new int[] {7, 0, 49},
-      },
-      new int[][] {
-        new int[] {-1, 1, 6},
-        new int[] {19, 0, 36},
-        new int[] {22, 0, 37},
-        new int[] {26, 0, 38},
-      },
-      new int[][] {
-        new int[] {-1, 1, 50},
-        new int[] {14, 0, 97},
-      },
-      new int[][] {
         new int[] {-1, 1, 52},
+        new int[] {7, 0, 47},
       },
       new int[][] {
         new int[] {-1, 1, 6},
-        new int[] {19, 0, 36},
-        new int[] {22, 0, 37},
-        new int[] {26, 0, 38},
+        new int[] {19, 0, 34},
+        new int[] {22, 0, 35},
+        new int[] {26, 0, 36},
       },
       new int[][] {
-        new int[] {-1, 3, 107},
-        new int[] {12, 0, 109},
+        new int[] {-1, 1, 46},
+        new int[] {14, 0, 89},
       },
       new int[][] {
-        new int[] {-1, 3, 108},
-        new int[] {12, 0, 110},
+        new int[] {-1, 1, 48},
       },
       new int[][] {
-        new int[] {-1, 1, 42},
+        new int[] {-1, 1, 6},
+        new int[] {19, 0, 34},
+        new int[] {22, 0, 35},
+        new int[] {26, 0, 36},
       },
       new int[][] {
-        new int[] {-1, 1, 43},
+        new int[] {-1, 3, 99},
+        new int[] {12, 0, 101},
+      },
+      new int[][] {
+        new int[] {-1, 3, 100},
+        new int[] {12, 0, 102},
+      },
+      new int[][] {
+        new int[] {-1, 1, 38},
+      },
+      new int[][] {
+        new int[] {-1, 1, 39},
       },
     };
 
@@ -2076,99 +1946,97 @@ public class Parser
         new int[] {8, 15},
       },
       new int[][] {
+        new int[] {-1, 37},
+        new int[] {38, 58},
+        new int[] {65, 77},
+        new int[] {95, 99},
+        new int[] {98, 100},
+      },
+      new int[][] {
+        new int[] {-1, 38},
+      },
+      new int[][] {
         new int[] {-1, 39},
-        new int[] {40, 62},
-        new int[] {71, 85},
-        new int[] {103, 107},
-        new int[] {106, 108},
-      },
-      new int[][] {
-        new int[] {-1, 40},
-      },
-      new int[][] {
-        new int[] {-1, 41},
       },
       new int[][] {
         new int[] {-1, 4},
       },
       new int[][] {
-        new int[] {-1, 42},
+        new int[] {-1, 40},
         new int[] {5, 11},
       },
       new int[][] {
-        new int[] {-1, 76},
+        new int[] {-1, 70},
         new int[] {16, 25},
-        new int[] {20, 47},
-        new int[] {57, 72},
-        new int[] {86, 72},
-        new int[] {94, 102},
+        new int[] {20, 45},
+        new int[] {53, 66},
+        new int[] {78, 66},
+        new int[] {86, 94},
       },
       new int[][] {
         new int[] {-1, 26},
-        new int[] {49, 64},
+        new int[] {47, 60},
       },
       new int[][] {
         new int[] {-1, 27},
-        new int[] {50, 65},
+        new int[] {48, 61},
       },
       new int[][] {
         new int[] {-1, 28},
-        new int[] {51, 66},
+        new int[] {49, 62},
       },
       new int[][] {
         new int[] {-1, 29},
-        new int[] {52, 67},
+        new int[] {50, 63},
       },
       new int[][] {
         new int[] {-1, 30},
       },
       new int[][] {
         new int[] {-1, 31},
-        new int[] {19, 46},
+        new int[] {19, 44},
       },
       new int[][] {
-        new int[] {-1, 43},
+        new int[] {-1, 41},
       },
       new int[][] {
-        new int[] {-1, 73},
-        new int[] {86, 100},
+        new int[] {-1, 67},
+        new int[] {78, 92},
       },
       new int[][] {
         new int[] {-1, 8},
       },
       new int[][] {
-        new int[] {-1, 35},
-        new int[] {68, 82},
-        new int[] {69, 83},
-        new int[] {70, 84},
+        new int[] {-1, 33},
+        new int[] {64, 76},
       },
       new int[][] {
-        new int[] {-1, 44},
+        new int[] {-1, 42},
       },
       new int[][] {
-        new int[] {-1, 45},
+        new int[] {-1, 43},
       },
       new int[][] {
         new int[] {-1, 14},
       },
       new int[][] {
-        new int[] {-1, 94},
+        new int[] {-1, 86},
       },
       new int[][] {
-        new int[] {-1, 77},
-        new int[] {60, 81},
+        new int[] {-1, 71},
+        new int[] {56, 75},
       },
       new int[][] {
-        new int[] {-1, 78},
-        new int[] {96, 104},
+        new int[] {-1, 72},
+        new int[] {88, 96},
       },
       new int[][] {
-        new int[] {-1, 79},
-        new int[] {97, 105},
+        new int[] {-1, 73},
+        new int[] {89, 97},
       },
       new int[][] {
-        new int[] {-1, 80},
-        new int[] {75, 88},
+        new int[] {-1, 74},
+        new int[] {69, 80},
       },
     };
 
@@ -2181,7 +2049,7 @@ public class Parser
       "expecting: '='",
       "expecting: '('",
       "expecting: '-', '(', id, float, integer, string",
-      "expecting: ')', 'float', 'int', 'str'",
+      "expecting: ')', id",
       "expecting: ')', id, 'if', 'while'",
       "expecting: id, float, integer, string",
       "expecting: ';', '>=', '>', '<=', '<', '==', '+', '*', '-', '/', ')', 'AND', 'OR', ','",
@@ -2205,11 +2073,11 @@ public class Parser
     private static int[] errors = {
       0, 1, 2, 3, 0, 1, 1, 4, 3, 3, 5, 0, 6, 6, 2, 4, 
       7, 8, 9, 10, 7, 11, 11, 11, 11, 12, 13, 14, 11, 11, 11, 11, 
-      1, 1, 1, 15, 16, 6, 6, 15, 9, 9, 9, 9, 9, 9, 11, 17, 
-      18, 7, 7, 7, 7, 19, 19, 19, 6, 7, 20, 21, 21, 2, 15, 11, 
-      13, 14, 11, 11, 8, 8, 8, 9, 22, 15, 9, 7, 23, 24, 25, 25, 
-      25, 24, 15, 15, 15, 15, 7, 20, 25, 7, 7, 7, 7, 7, 7, 6, 
-      21, 21, 6, 3, 15, 9, 26, 9, 25, 25, 9, 15, 15, 9, 9, 
+      1, 15, 16, 6, 6, 15, 9, 9, 9, 9, 9, 9, 11, 17, 18, 7, 
+      7, 7, 7, 19, 6, 7, 20, 21, 21, 2, 15, 11, 13, 14, 11, 11, 
+      8, 9, 22, 15, 9, 7, 23, 24, 25, 25, 25, 24, 15, 15, 7, 20, 
+      25, 7, 7, 7, 7, 7, 7, 6, 21, 21, 6, 3, 15, 9, 26, 9, 
+      25, 25, 9, 15, 15, 9, 9, 
     };
 }
 }

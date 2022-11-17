@@ -4125,47 +4125,47 @@ public sealed class ADefineFunction : PDefineFunction
     }
 
 }
-public sealed class ASingleintFuncparams : PFuncparams
+public sealed class ASingleFuncparams : PFuncparams
 {
-    private TKeyint _keyint_;
-    private TId _id_;
+    private TId _type_;
+    private TId _name_;
 
-    public ASingleintFuncparams ()
+    public ASingleFuncparams ()
     {
     }
 
-    public ASingleintFuncparams (
-            TKeyint _keyint_,
-            TId _id_
+    public ASingleFuncparams (
+            TId _type_,
+            TId _name_
     )
     {
-        SetKeyint (_keyint_);
-        SetId (_id_);
+        SetType (_type_);
+        SetName (_name_);
     }
 
     public override Object Clone()
     {
-        return new ASingleintFuncparams (
-            (TKeyint)CloneNode (_keyint_),
-            (TId)CloneNode (_id_)
+        return new ASingleFuncparams (
+            (TId)CloneNode (_type_),
+            (TId)CloneNode (_name_)
         );
     }
 
     public override void Apply(Switch sw)
     {
-        ((Analysis) sw).CaseASingleintFuncparams(this);
+        ((Analysis) sw).CaseASingleFuncparams(this);
     }
 
-    public TKeyint GetKeyint ()
+    public TId GetType ()
     {
-        return _keyint_;
+        return _type_;
     }
 
-    public void SetKeyint (TKeyint node)
+    public void SetType (TId node)
     {
-        if(_keyint_ != null)
+        if(_type_ != null)
         {
-            _keyint_.Parent(null);
+            _type_.Parent(null);
         }
 
         if(node != null)
@@ -4178,18 +4178,18 @@ public sealed class ASingleintFuncparams : PFuncparams
             node.Parent(this);
         }
 
-        _keyint_ = node;
+        _type_ = node;
     }
-    public TId GetId ()
+    public TId GetName ()
     {
-        return _id_;
+        return _name_;
     }
 
-    public void SetId (TId node)
+    public void SetName (TId node)
     {
-        if(_id_ != null)
+        if(_name_ != null)
         {
-            _id_.Parent(null);
+            _name_.Parent(null);
         }
 
         if(node != null)
@@ -4202,309 +4202,75 @@ public sealed class ASingleintFuncparams : PFuncparams
             node.Parent(this);
         }
 
-        _id_ = node;
+        _name_ = node;
     }
 
     public override string ToString()
     {
         return ""
-            + ToString (_keyint_)
-            + ToString (_id_)
+            + ToString (_type_)
+            + ToString (_name_)
         ;
     }
 
     internal override void RemoveChild(Node child)
     {
-        if ( _keyint_ == child )
+        if ( _type_ == child )
         {
-            _keyint_ = null;
+            _type_ = null;
             return;
         }
-        if ( _id_ == child )
+        if ( _name_ == child )
         {
-            _id_ = null;
+            _name_ = null;
             return;
         }
     }
 
     internal override void ReplaceChild(Node oldChild, Node newChild)
     {
-        if ( _keyint_ == oldChild )
+        if ( _type_ == oldChild )
         {
-            SetKeyint ((TKeyint) newChild);
+            SetType ((TId) newChild);
             return;
         }
-        if ( _id_ == oldChild )
+        if ( _name_ == oldChild )
         {
-            SetId ((TId) newChild);
-            return;
-        }
-    }
-
-}
-public sealed class ASinglefloatFuncparams : PFuncparams
-{
-    private TKeyfloat _keyfloat_;
-    private TId _id_;
-
-    public ASinglefloatFuncparams ()
-    {
-    }
-
-    public ASinglefloatFuncparams (
-            TKeyfloat _keyfloat_,
-            TId _id_
-    )
-    {
-        SetKeyfloat (_keyfloat_);
-        SetId (_id_);
-    }
-
-    public override Object Clone()
-    {
-        return new ASinglefloatFuncparams (
-            (TKeyfloat)CloneNode (_keyfloat_),
-            (TId)CloneNode (_id_)
-        );
-    }
-
-    public override void Apply(Switch sw)
-    {
-        ((Analysis) sw).CaseASinglefloatFuncparams(this);
-    }
-
-    public TKeyfloat GetKeyfloat ()
-    {
-        return _keyfloat_;
-    }
-
-    public void SetKeyfloat (TKeyfloat node)
-    {
-        if(_keyfloat_ != null)
-        {
-            _keyfloat_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _keyfloat_ = node;
-    }
-    public TId GetId ()
-    {
-        return _id_;
-    }
-
-    public void SetId (TId node)
-    {
-        if(_id_ != null)
-        {
-            _id_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _id_ = node;
-    }
-
-    public override string ToString()
-    {
-        return ""
-            + ToString (_keyfloat_)
-            + ToString (_id_)
-        ;
-    }
-
-    internal override void RemoveChild(Node child)
-    {
-        if ( _keyfloat_ == child )
-        {
-            _keyfloat_ = null;
-            return;
-        }
-        if ( _id_ == child )
-        {
-            _id_ = null;
-            return;
-        }
-    }
-
-    internal override void ReplaceChild(Node oldChild, Node newChild)
-    {
-        if ( _keyfloat_ == oldChild )
-        {
-            SetKeyfloat ((TKeyfloat) newChild);
-            return;
-        }
-        if ( _id_ == oldChild )
-        {
-            SetId ((TId) newChild);
+            SetName ((TId) newChild);
             return;
         }
     }
 
 }
-public sealed class ASinglestrFuncparams : PFuncparams
+public sealed class AMultipleFuncparams : PFuncparams
 {
-    private TKeystr _keystr_;
-    private TId _id_;
-
-    public ASinglestrFuncparams ()
-    {
-    }
-
-    public ASinglestrFuncparams (
-            TKeystr _keystr_,
-            TId _id_
-    )
-    {
-        SetKeystr (_keystr_);
-        SetId (_id_);
-    }
-
-    public override Object Clone()
-    {
-        return new ASinglestrFuncparams (
-            (TKeystr)CloneNode (_keystr_),
-            (TId)CloneNode (_id_)
-        );
-    }
-
-    public override void Apply(Switch sw)
-    {
-        ((Analysis) sw).CaseASinglestrFuncparams(this);
-    }
-
-    public TKeystr GetKeystr ()
-    {
-        return _keystr_;
-    }
-
-    public void SetKeystr (TKeystr node)
-    {
-        if(_keystr_ != null)
-        {
-            _keystr_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _keystr_ = node;
-    }
-    public TId GetId ()
-    {
-        return _id_;
-    }
-
-    public void SetId (TId node)
-    {
-        if(_id_ != null)
-        {
-            _id_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _id_ = node;
-    }
-
-    public override string ToString()
-    {
-        return ""
-            + ToString (_keystr_)
-            + ToString (_id_)
-        ;
-    }
-
-    internal override void RemoveChild(Node child)
-    {
-        if ( _keystr_ == child )
-        {
-            _keystr_ = null;
-            return;
-        }
-        if ( _id_ == child )
-        {
-            _id_ = null;
-            return;
-        }
-    }
-
-    internal override void ReplaceChild(Node oldChild, Node newChild)
-    {
-        if ( _keystr_ == oldChild )
-        {
-            SetKeystr ((TKeystr) newChild);
-            return;
-        }
-        if ( _id_ == oldChild )
-        {
-            SetId ((TId) newChild);
-            return;
-        }
-    }
-
-}
-public sealed class AMultintFuncparams : PFuncparams
-{
-    private TKeyint _keyint_;
-    private TId _id_;
+    private TId _type_;
+    private TId _name_;
     private TComma _comma_;
     private PFuncparams _funcparams_;
 
-    public AMultintFuncparams ()
+    public AMultipleFuncparams ()
     {
     }
 
-    public AMultintFuncparams (
-            TKeyint _keyint_,
-            TId _id_,
+    public AMultipleFuncparams (
+            TId _type_,
+            TId _name_,
             TComma _comma_,
             PFuncparams _funcparams_
     )
     {
-        SetKeyint (_keyint_);
-        SetId (_id_);
+        SetType (_type_);
+        SetName (_name_);
         SetComma (_comma_);
         SetFuncparams (_funcparams_);
     }
 
     public override Object Clone()
     {
-        return new AMultintFuncparams (
-            (TKeyint)CloneNode (_keyint_),
-            (TId)CloneNode (_id_),
+        return new AMultipleFuncparams (
+            (TId)CloneNode (_type_),
+            (TId)CloneNode (_name_),
             (TComma)CloneNode (_comma_),
             (PFuncparams)CloneNode (_funcparams_)
         );
@@ -4512,19 +4278,19 @@ public sealed class AMultintFuncparams : PFuncparams
 
     public override void Apply(Switch sw)
     {
-        ((Analysis) sw).CaseAMultintFuncparams(this);
+        ((Analysis) sw).CaseAMultipleFuncparams(this);
     }
 
-    public TKeyint GetKeyint ()
+    public TId GetType ()
     {
-        return _keyint_;
+        return _type_;
     }
 
-    public void SetKeyint (TKeyint node)
+    public void SetType (TId node)
     {
-        if(_keyint_ != null)
+        if(_type_ != null)
         {
-            _keyint_.Parent(null);
+            _type_.Parent(null);
         }
 
         if(node != null)
@@ -4537,18 +4303,18 @@ public sealed class AMultintFuncparams : PFuncparams
             node.Parent(this);
         }
 
-        _keyint_ = node;
+        _type_ = node;
     }
-    public TId GetId ()
+    public TId GetName ()
     {
-        return _id_;
+        return _name_;
     }
 
-    public void SetId (TId node)
+    public void SetName (TId node)
     {
-        if(_id_ != null)
+        if(_name_ != null)
         {
-            _id_.Parent(null);
+            _name_.Parent(null);
         }
 
         if(node != null)
@@ -4561,7 +4327,7 @@ public sealed class AMultintFuncparams : PFuncparams
             node.Parent(this);
         }
 
-        _id_ = node;
+        _name_ = node;
     }
     public TComma GetComma ()
     {
@@ -4615,8 +4381,8 @@ public sealed class AMultintFuncparams : PFuncparams
     public override string ToString()
     {
         return ""
-            + ToString (_keyint_)
-            + ToString (_id_)
+            + ToString (_type_)
+            + ToString (_name_)
             + ToString (_comma_)
             + ToString (_funcparams_)
         ;
@@ -4624,14 +4390,14 @@ public sealed class AMultintFuncparams : PFuncparams
 
     internal override void RemoveChild(Node child)
     {
-        if ( _keyint_ == child )
+        if ( _type_ == child )
         {
-            _keyint_ = null;
+            _type_ = null;
             return;
         }
-        if ( _id_ == child )
+        if ( _name_ == child )
         {
-            _id_ = null;
+            _name_ = null;
             return;
         }
         if ( _comma_ == child )
@@ -4648,404 +4414,14 @@ public sealed class AMultintFuncparams : PFuncparams
 
     internal override void ReplaceChild(Node oldChild, Node newChild)
     {
-        if ( _keyint_ == oldChild )
+        if ( _type_ == oldChild )
         {
-            SetKeyint ((TKeyint) newChild);
+            SetType ((TId) newChild);
             return;
         }
-        if ( _id_ == oldChild )
+        if ( _name_ == oldChild )
         {
-            SetId ((TId) newChild);
-            return;
-        }
-        if ( _comma_ == oldChild )
-        {
-            SetComma ((TComma) newChild);
-            return;
-        }
-        if ( _funcparams_ == oldChild )
-        {
-            SetFuncparams ((PFuncparams) newChild);
-            return;
-        }
-    }
-
-}
-public sealed class AMultifloatFuncparams : PFuncparams
-{
-    private TKeyfloat _keyfloat_;
-    private TId _id_;
-    private TComma _comma_;
-    private PFuncparams _funcparams_;
-
-    public AMultifloatFuncparams ()
-    {
-    }
-
-    public AMultifloatFuncparams (
-            TKeyfloat _keyfloat_,
-            TId _id_,
-            TComma _comma_,
-            PFuncparams _funcparams_
-    )
-    {
-        SetKeyfloat (_keyfloat_);
-        SetId (_id_);
-        SetComma (_comma_);
-        SetFuncparams (_funcparams_);
-    }
-
-    public override Object Clone()
-    {
-        return new AMultifloatFuncparams (
-            (TKeyfloat)CloneNode (_keyfloat_),
-            (TId)CloneNode (_id_),
-            (TComma)CloneNode (_comma_),
-            (PFuncparams)CloneNode (_funcparams_)
-        );
-    }
-
-    public override void Apply(Switch sw)
-    {
-        ((Analysis) sw).CaseAMultifloatFuncparams(this);
-    }
-
-    public TKeyfloat GetKeyfloat ()
-    {
-        return _keyfloat_;
-    }
-
-    public void SetKeyfloat (TKeyfloat node)
-    {
-        if(_keyfloat_ != null)
-        {
-            _keyfloat_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _keyfloat_ = node;
-    }
-    public TId GetId ()
-    {
-        return _id_;
-    }
-
-    public void SetId (TId node)
-    {
-        if(_id_ != null)
-        {
-            _id_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _id_ = node;
-    }
-    public TComma GetComma ()
-    {
-        return _comma_;
-    }
-
-    public void SetComma (TComma node)
-    {
-        if(_comma_ != null)
-        {
-            _comma_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _comma_ = node;
-    }
-    public PFuncparams GetFuncparams ()
-    {
-        return _funcparams_;
-    }
-
-    public void SetFuncparams (PFuncparams node)
-    {
-        if(_funcparams_ != null)
-        {
-            _funcparams_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _funcparams_ = node;
-    }
-
-    public override string ToString()
-    {
-        return ""
-            + ToString (_keyfloat_)
-            + ToString (_id_)
-            + ToString (_comma_)
-            + ToString (_funcparams_)
-        ;
-    }
-
-    internal override void RemoveChild(Node child)
-    {
-        if ( _keyfloat_ == child )
-        {
-            _keyfloat_ = null;
-            return;
-        }
-        if ( _id_ == child )
-        {
-            _id_ = null;
-            return;
-        }
-        if ( _comma_ == child )
-        {
-            _comma_ = null;
-            return;
-        }
-        if ( _funcparams_ == child )
-        {
-            _funcparams_ = null;
-            return;
-        }
-    }
-
-    internal override void ReplaceChild(Node oldChild, Node newChild)
-    {
-        if ( _keyfloat_ == oldChild )
-        {
-            SetKeyfloat ((TKeyfloat) newChild);
-            return;
-        }
-        if ( _id_ == oldChild )
-        {
-            SetId ((TId) newChild);
-            return;
-        }
-        if ( _comma_ == oldChild )
-        {
-            SetComma ((TComma) newChild);
-            return;
-        }
-        if ( _funcparams_ == oldChild )
-        {
-            SetFuncparams ((PFuncparams) newChild);
-            return;
-        }
-    }
-
-}
-public sealed class AMultistrFuncparams : PFuncparams
-{
-    private TKeystr _keystr_;
-    private TId _id_;
-    private TComma _comma_;
-    private PFuncparams _funcparams_;
-
-    public AMultistrFuncparams ()
-    {
-    }
-
-    public AMultistrFuncparams (
-            TKeystr _keystr_,
-            TId _id_,
-            TComma _comma_,
-            PFuncparams _funcparams_
-    )
-    {
-        SetKeystr (_keystr_);
-        SetId (_id_);
-        SetComma (_comma_);
-        SetFuncparams (_funcparams_);
-    }
-
-    public override Object Clone()
-    {
-        return new AMultistrFuncparams (
-            (TKeystr)CloneNode (_keystr_),
-            (TId)CloneNode (_id_),
-            (TComma)CloneNode (_comma_),
-            (PFuncparams)CloneNode (_funcparams_)
-        );
-    }
-
-    public override void Apply(Switch sw)
-    {
-        ((Analysis) sw).CaseAMultistrFuncparams(this);
-    }
-
-    public TKeystr GetKeystr ()
-    {
-        return _keystr_;
-    }
-
-    public void SetKeystr (TKeystr node)
-    {
-        if(_keystr_ != null)
-        {
-            _keystr_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _keystr_ = node;
-    }
-    public TId GetId ()
-    {
-        return _id_;
-    }
-
-    public void SetId (TId node)
-    {
-        if(_id_ != null)
-        {
-            _id_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _id_ = node;
-    }
-    public TComma GetComma ()
-    {
-        return _comma_;
-    }
-
-    public void SetComma (TComma node)
-    {
-        if(_comma_ != null)
-        {
-            _comma_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _comma_ = node;
-    }
-    public PFuncparams GetFuncparams ()
-    {
-        return _funcparams_;
-    }
-
-    public void SetFuncparams (PFuncparams node)
-    {
-        if(_funcparams_ != null)
-        {
-            _funcparams_.Parent(null);
-        }
-
-        if(node != null)
-        {
-            if(node.Parent() != null)
-            {
-                node.Parent().RemoveChild(node);
-            }
-
-            node.Parent(this);
-        }
-
-        _funcparams_ = node;
-    }
-
-    public override string ToString()
-    {
-        return ""
-            + ToString (_keystr_)
-            + ToString (_id_)
-            + ToString (_comma_)
-            + ToString (_funcparams_)
-        ;
-    }
-
-    internal override void RemoveChild(Node child)
-    {
-        if ( _keystr_ == child )
-        {
-            _keystr_ = null;
-            return;
-        }
-        if ( _id_ == child )
-        {
-            _id_ = null;
-            return;
-        }
-        if ( _comma_ == child )
-        {
-            _comma_ = null;
-            return;
-        }
-        if ( _funcparams_ == child )
-        {
-            _funcparams_ = null;
-            return;
-        }
-    }
-
-    internal override void ReplaceChild(Node oldChild, Node newChild)
-    {
-        if ( _keystr_ == oldChild )
-        {
-            SetKeystr ((TKeystr) newChild);
-            return;
-        }
-        if ( _id_ == oldChild )
-        {
-            SetId ((TId) newChild);
+            SetName ((TId) newChild);
             return;
         }
         if ( _comma_ == oldChild )

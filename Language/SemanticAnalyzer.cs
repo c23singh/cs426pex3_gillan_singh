@@ -21,6 +21,9 @@ namespace CS426.analysis
         // Decorated Parse Tree
         Dictionary<Node, Definition> decoratedParseTree = new Dictionary<Node, Definition>();
 
+        string curFunc;
+
+
         public void PrintWarning(Token t, String message)
         {
             Console.WriteLine("Line " + t.Line + ", Col" + t.Pos + ": " + message);
@@ -52,6 +55,15 @@ namespace CS426.analysis
             intDefinition.name = "int";
 
             decoratedParseTree.Add(node, intDefinition);
+        }
+
+        public override void OutAFltOperand(AFltOperand node)
+        {
+            // Create the definition
+            Definition floatDefinition = new NumberDefinition();
+            floatDefinition.name = "float";
+
+            decoratedParseTree.Add(node, floatDefinition);
         }
 
         public override void OutAStrOperand(AStrOperand node)
@@ -625,6 +637,56 @@ namespace CS426.analysis
             {
                 // No need to do anything here
             }
+        }
+        // --------------------------------------------------------------
+        // Function Declare
+        // --------------------------------------------------------------
+
+        public override void InADefineFunction(ADefineFunction node)
+        {
+            Definition idDef;
+
+            if(globalSymbolTable.TryGetValue(node.GetId().Text, out idDef))
+            {
+                PrintWarning(node.GetKeyfunc(), "Function named" + node.GetId().Text + " is already being used.");
+            }
+            else
+            {
+                FunctionDefinition newFunction = new FunctionDefinition();
+                newFunction.name = node.GetId().Text;
+                curFunc = newFunction.name;
+                globalSymbolTable.Add(node.GetId().Text, newFunction);
+            }
+        }
+        public override void OutADefineFunction(ADefineFunction node)
+        {
+            localSymbolTable.Clear();
+        }
+
+        public override void OutAMultipleFuncparams(AMultipleFuncparams node)
+        {
+            Definition typeDef;
+            Definition idDef;
+            Definition funcDef;
+
+
+            if (!globalSymbolTable.TryGetValue(node.GetType().Text, out typeDef))
+            {
+                PrintWarning(node.GetType(), "Type " + node.GetType().Text + " does not exist!");
+            }
+            else if (!(typeDef is TypeDefinition))
+            {
+                PrintWarning(node.GetType(), "Identifier " + node.GetType().Text + " is not a recognized data type");
+            }
+            else if (!globalSymbolTable.TryGetValue(curFunc, out funcDef))
+            {
+                PrintWarning(node.GetComma(), "Function " + curFunc + " does not exi-st");
+            }
+            else
+            {
+                
+            }
+            
         }
     }
 

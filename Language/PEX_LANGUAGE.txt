@@ -93,7 +93,7 @@ Productions
 	function_statement = id openp parameters closep eol;
 	parameters = {single} expression | {multiple} expression comma parameters;
 	define_function = keyfunc id [paramopen]:openp funcparams [paramclose]:closep [funcopen]:openp statements [funcclose]:closep;
-	funcparams = {singleint} keyint id| {singlefloat} keyfloat id | {singlestr} keystr id | {multint} keyint id comma funcparams | {multifloat} keyfloat id comma funcparams | {multistr} keystr id comma funcparams | {empty} ;
+	funcparams = {single} [type]:id [name]:id | {multiple} [type]:id [name]:id comma funcparams |  {empty} ;
 
 	// If and while
 	if_statement = keyif [headero]:openp logical [headerc]:closep [bodyo]:openp statements [bodyc]:closep;
